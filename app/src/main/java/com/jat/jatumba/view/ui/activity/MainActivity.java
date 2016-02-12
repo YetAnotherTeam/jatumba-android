@@ -1,13 +1,16 @@
-package com.jat.jatumba;
+package com.jat.jatumba.view.ui.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import com.jat.jatumba.R;
+
+public class MainActivity extends DrawerActivity {
+
+    @Override
+    public NavigationDrawerItem getCurrentNavDrawerItem() {
+        return NavigationDrawerItem.COMPOSITIONS;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
