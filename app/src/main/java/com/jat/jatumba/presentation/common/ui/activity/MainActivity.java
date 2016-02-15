@@ -1,4 +1,4 @@
-package com.jat.jatumba.view.ui.activity;
+package com.jat.jatumba.presentation.common.ui.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
