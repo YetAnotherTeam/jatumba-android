@@ -1,4 +1,4 @@
-package com.jat.jatumba.domain.users;
+package com.jat.jatumba.domain.main.users;
 
 import java.io.Serializable;
 

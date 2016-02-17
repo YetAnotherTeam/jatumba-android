@@ -1,7 +1,5 @@
-package com.jat.jatumba.domain.tracks;
-
-
-import com.jat.jatumba.domain.users.User;
+package com.jat.jatumba.domain.main.tracks;
+import com.jat.jatumba.domain.main.users.User;
 
 public class Message {
     private final int id;

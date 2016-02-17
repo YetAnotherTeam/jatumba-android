@@ -1,7 +1,8 @@
 package com.jat.jatumba.data;
 
-import com.jat.jatumba.domain.users.User;
-import com.jat.jatumba.domain.users.UsersDataProvider;
+
+import com.jat.jatumba.domain.main.users.User;
+import com.jat.jatumba.domain.main.users.UsersDataProvider;
 
 import java.util.ArrayList;
 import java.util.List;

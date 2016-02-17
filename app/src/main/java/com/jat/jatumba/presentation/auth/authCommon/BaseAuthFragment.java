@@ -31,7 +31,7 @@ public abstract class BaseAuthFragment extends BaseFragment implements BaseAuthV
         Snackbar.make(getView(), getString(message), Snackbar.LENGTH_LONG).show();
     }
 
-    protected AuthActivityComponent getMainActivityComponent() {
+    protected AuthActivityComponent getAuthActivityComponent() {
         return ((AuthActivity)getActivity()).getAuthActivityComponent();
     }
 }

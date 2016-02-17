@@ -2,8 +2,8 @@ package com.jat.jatumba.presentation.injection;
 
 import com.jat.jatumba.data.UsersDataProviderImpl;
 import com.jat.jatumba.data.TracksDataProviderImpl;
-import com.jat.jatumba.domain.users.UsersDataProvider;
-import com.jat.jatumba.domain.tracks.MessagesDataProvider;
+import com.jat.jatumba.domain.main.tracks.MessagesDataProvider;
+import com.jat.jatumba.domain.main.users.UsersDataProvider;
 
 import javax.inject.Singleton;
 

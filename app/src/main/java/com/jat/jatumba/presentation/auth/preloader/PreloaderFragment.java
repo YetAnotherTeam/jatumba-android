@@ -12,10 +12,15 @@ import com.jat.jatumba.R;
 import com.jat.jatumba.presentation.auth.authCommon.BaseAuthFragment;
 import com.jat.jatumba.presentation.common.BasePresenter;
 
+import javax.inject.Inject;
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PreloaderFragment extends BaseAuthFragment {
+public class PreloaderFragment extends BaseAuthFragment implements PreloaderView {
+    @Inject
+    PreloaderPresenter preloaderPresenter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -23,14 +28,22 @@ public class PreloaderFragment extends BaseAuthFragment {
         return inflater.inflate(R.layout.fragment_preloader, container, false);
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        inject();
+        //noinspection unchecked
+        getPresenter().setView(this);
+    }
+
     @NonNull
     @Override
     protected BasePresenter getPresenter() {
-        return null;
+        return preloaderPresenter;
     }
 
     @Override
     protected void inject() {
-
+        getAuthActivityComponent().inject(this);
     }
 }

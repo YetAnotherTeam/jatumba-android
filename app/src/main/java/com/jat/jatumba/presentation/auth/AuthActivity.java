@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 
 import com.google.common.base.Preconditions;
-
 import com.jat.jatumba.R;
 import com.jat.jatumba.presentation.auth.authCommon.BaseAuthFragment;
 import com.jat.jatumba.presentation.auth.login.LoginFragment;
@@ -31,14 +30,22 @@ public class AuthActivity extends BaseActivity implements AuthRouter {
                         .dataModule(new DataModule())
                         .domainModule(new DomainModule())
                         .build();
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+            addBackStack(new PreloaderFragment(), false);
+        }
     }
 
-
     private void addBackStack(BaseAuthFragment fragment) {
+        addBackStack(fragment, true);
+    }
+
+    private void addBackStack(BaseAuthFragment fragment, boolean addBackStack) {
         Preconditions.checkNotNull(fragment);
         FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
         tx.replace(R.id.content, fragment);
-        tx.addToBackStack(fragment.getFragmentName());
+        if (addBackStack) {
+            tx.addToBackStack(fragment.getFragmentName());
+        }
         tx.commit();
     }
 

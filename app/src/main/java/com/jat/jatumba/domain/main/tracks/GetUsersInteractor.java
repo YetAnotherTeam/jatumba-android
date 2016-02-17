@@ -1,4 +1,4 @@
-package com.jat.jatumba.domain.tracks;
+package com.jat.jatumba.domain.main.tracks;
 
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.presentation.injection.DomainModule;

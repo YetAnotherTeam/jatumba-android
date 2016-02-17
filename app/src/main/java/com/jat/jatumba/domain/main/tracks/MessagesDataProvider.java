@@ -1,4 +1,4 @@
-package com.jat.jatumba.domain.tracks;
+package com.jat.jatumba.domain.main.tracks;
 
 import java.util.List;
 

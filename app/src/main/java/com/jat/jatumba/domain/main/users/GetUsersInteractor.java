@@ -1,4 +1,4 @@
-package com.jat.jatumba.domain.users;
+package com.jat.jatumba.domain.main.users;
 
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.presentation.injection.DomainModule;
