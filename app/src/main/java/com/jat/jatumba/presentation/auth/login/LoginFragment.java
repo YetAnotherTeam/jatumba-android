@@ -11,7 +11,11 @@ import com.jat.jatumba.R;
 import com.jat.jatumba.presentation.auth.authCommon.BaseAuthFragment;
 import com.jat.jatumba.presentation.common.BasePresenter;
 
+import javax.inject.Inject;
+
 public class LoginFragment extends BaseAuthFragment {
+    @Inject
+    LoginPresenter loginPresenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,11 +27,11 @@ public class LoginFragment extends BaseAuthFragment {
     @NonNull
     @Override
     protected BasePresenter getPresenter() {
-        return null;
+        return loginPresenter;
     }
 
     @Override
     protected void inject() {
-
+        getAuthActivityComponent().inject(this);
     }
 }

@@ -28,14 +28,6 @@ public class PreloaderFragment extends BaseAuthFragment implements PreloaderView
         return inflater.inflate(R.layout.fragment_preloader, container, false);
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        inject();
-        //noinspection unchecked
-        getPresenter().setView(this);
-    }
-
     @NonNull
     @Override
     protected BasePresenter getPresenter() {

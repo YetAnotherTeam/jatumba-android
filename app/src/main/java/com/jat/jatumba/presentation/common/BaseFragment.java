@@ -51,7 +51,6 @@ public abstract class BaseFragment extends Fragment {
         getPresenter().onStop();
     }
 
-
     @Override
     public void onDestroyView() {
         ButterKnife.unbind(this);

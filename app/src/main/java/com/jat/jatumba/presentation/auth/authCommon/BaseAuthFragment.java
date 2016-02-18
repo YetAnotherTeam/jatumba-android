@@ -27,8 +27,8 @@ public abstract class BaseAuthFragment extends BaseFragment implements BaseAuthV
     }
 
     @Override
-    public void showError(@StringRes int message) {
-        Snackbar.make(getView(), getString(message), Snackbar.LENGTH_LONG).show();
+    public void showError(String message) {
+        Snackbar.make(getView(), message, Snackbar.LENGTH_LONG).show();
     }
 
     protected AuthActivityComponent getAuthActivityComponent() {
