@@ -1,11 +1,8 @@
 package com.jat.jatumba.presentation.auth;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 
-import com.google.common.base.Preconditions;
 import com.jat.jatumba.R;
-import com.jat.jatumba.presentation.auth.authCommon.BaseAuthFragment;
 import com.jat.jatumba.presentation.auth.login.LoginFragment;
 import com.jat.jatumba.presentation.auth.preloader.PreloaderFragment;
 import com.jat.jatumba.presentation.auth.signUp.SignUpFragment;
@@ -31,22 +28,8 @@ public class AuthActivity extends BaseActivity implements AuthRouter {
                         .domainModule(new DomainModule())
                         .build();
         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-            addBackStack(new PreloaderFragment(), false);
+            openPreloader();
         }
-    }
-
-    private void addBackStack(BaseAuthFragment fragment) {
-        addBackStack(fragment, true);
-    }
-
-    private void addBackStack(BaseAuthFragment fragment, boolean addBackStack) {
-        Preconditions.checkNotNull(fragment);
-        FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-        tx.replace(R.id.content, fragment);
-        if (addBackStack) {
-            tx.addToBackStack(fragment.getFragmentName());
-        }
-        tx.commit();
     }
 
     public AuthActivityComponent getAuthActivityComponent() {
@@ -55,16 +38,16 @@ public class AuthActivity extends BaseActivity implements AuthRouter {
 
     @Override
     public void openLogin() {
-        addBackStack(new LoginFragment());
+        addBackStack(new LoginFragment(), false);
     }
 
     @Override
     public void openSignUp() {
-        addBackStack(new SignUpFragment());
+        addBackStack(new SignUpFragment(), false);
     }
 
     @Override
     public void openPreloader() {
-        addBackStack(new PreloaderFragment());
+        addBackStack(new PreloaderFragment(), false);
     }
 }
