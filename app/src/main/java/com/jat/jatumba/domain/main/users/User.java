@@ -3,10 +3,10 @@ package com.jat.jatumba.domain.main.users;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private final int id;
-    private final String firstName;
-    private final String lastName;
-    private final String profession;
+    private int id;
+    private String firstName;
+    private String lastName;
+    private String profession;
 
     public User(int id, String firstName, String lastName, String profession) {
         this.id = id;
@@ -14,6 +14,8 @@ public class User implements Serializable {
         this.lastName = lastName;
         this.profession = profession;
     }
+
+    public User(){}
 
     public int getId() {
         return id;

@@ -11,18 +11,13 @@ import android.view.ViewGroup;
 import com.jat.jatumba.R;
 import com.jat.jatumba.presentation.auth.authCommon.BaseAuthFragment;
 import com.jat.jatumba.presentation.common.BasePresenter;
+import com.jat.jatumba.presentation.common.Layout;
 
 /**
  * A simple {@link Fragment} subclass.
  */
+@Layout(id = R.layout.fragment_sign_up)
 public class SignUpFragment extends BaseAuthFragment {
-    @Override
-    public View onCreateView(LayoutInflater inflater,
-                             ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up, container, false);
-    }
 
     @NonNull
     @Override

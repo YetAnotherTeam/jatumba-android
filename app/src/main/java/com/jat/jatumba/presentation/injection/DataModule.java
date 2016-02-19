@@ -2,6 +2,8 @@ package com.jat.jatumba.presentation.injection;
 
 import com.jat.jatumba.data.UsersDataProviderImpl;
 import com.jat.jatumba.data.TracksDataProviderImpl;
+import com.jat.jatumba.data.retrofit.APIInterface;
+import com.jat.jatumba.data.retrofit.APIModule;
 import com.jat.jatumba.domain.main.tracks.MessagesDataProvider;
 import com.jat.jatumba.domain.main.users.UsersDataProvider;
 
@@ -20,9 +22,15 @@ public class DataModule {
         return new TracksDataProviderImpl();
     }
 
+//    @Singleton
+//    @Provides
+//    public UsersDataProvider provideMarksDataProvider() {
+//        return new UsersDataProviderImpl();
+//    }
+
     @Singleton
     @Provides
-    public UsersDataProvider provideMarksDataProvider() {
-        return new UsersDataProviderImpl();
+    public APIInterface provideAPIInterface() {
+        return APIModule.getAPIInterface();
     }
 }
