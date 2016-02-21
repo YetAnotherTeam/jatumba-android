@@ -19,7 +19,8 @@ public class SignupInteractor extends Interactor<User, Credentials> {
     private final APIInterface apiInterface;
     @Inject
     public SignupInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
-                           @Named(DomainModule.UI) Scheduler uiScheduler, APIInterface apiInterface) {
+                            @Named(DomainModule.UI) Scheduler uiScheduler,
+                            APIInterface apiInterface) {
         super(jobScheduler, uiScheduler);
         this.apiInterface = apiInterface;
     }
