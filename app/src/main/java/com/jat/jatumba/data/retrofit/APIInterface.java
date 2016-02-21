@@ -2,7 +2,6 @@ package com.jat.jatumba.data.retrofit;
 
 import com.jat.jatumba.domain.main.users.User;
 
-
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.POST;
@@ -15,4 +14,8 @@ public interface APIInterface {
     @FormUrlEncoded
     @POST("auth")
     Observable<User> authUser(@Field("email") String email, @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("signup")
+    Observable<User> signupUser(@Field("email") String email, @Field("password") String password);
 }

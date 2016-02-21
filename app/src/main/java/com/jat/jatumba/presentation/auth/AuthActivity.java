@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.jat.jatumba.R;
 import com.jat.jatumba.presentation.auth.login.LoginFragment;
 import com.jat.jatumba.presentation.auth.menu.MenuFragment;
-import com.jat.jatumba.presentation.auth.signUp.SignUpFragment;
+import com.jat.jatumba.presentation.auth.signup.SignupFragment;
 import com.jat.jatumba.presentation.common.BaseActivity;
 import com.jat.jatumba.presentation.common.Layout;
 import com.jat.jatumba.presentation.injection.AuthActivityComponent;
@@ -43,11 +43,16 @@ public class AuthActivity extends BaseActivity implements AuthRouter {
 
     @Override
     public void openSignUp() {
-        addBackStack(new SignUpFragment());
+        addBackStack(new SignupFragment());
     }
 
     @Override
     public void openMenu() {
         addBackStack(new MenuFragment(), false);
+    }
+
+    @Override
+    public void goBack() {
+        getSupportFragmentManager().popBackStack();
     }
 }

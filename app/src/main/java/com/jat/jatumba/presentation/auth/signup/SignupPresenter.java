@@ -1,10 +1,10 @@
-package com.jat.jatumba.presentation.auth.login;
+package com.jat.jatumba.presentation.auth.signup;
 
 import android.util.Log;
 
 import com.jat.jatumba.R;
 import com.jat.jatumba.domain.auth.common.Credentials;
-import com.jat.jatumba.domain.auth.login.LoginInteractor;
+import com.jat.jatumba.domain.auth.signup.SignupInteractor;
 import com.jat.jatumba.domain.main.users.User;
 import com.jat.jatumba.presentation.auth.authCommon.BaseAuthPresenter;
 
@@ -12,39 +12,40 @@ import javax.inject.Inject;
 
 import rx.Subscriber;
 
-
 /**
- * Created by bulat on 18.02.16.
+ * Created by bulat on 15.02.16.
  */
-public class LoginPresenter extends BaseAuthPresenter<LoginView> {
-    private static final String LOG_TAG = "LoginPresenter";
-    private final LoginInteractor loginInteractor;
+public class SignupPresenter extends BaseAuthPresenter<SignupView> {
+    private static final String LOG_TAG = "SignupPresenter";
+    private final SignupInteractor signupInteractor;
 
     @Inject
-    public LoginPresenter(LoginInteractor loginInteractor) {
+    public SignupPresenter(SignupInteractor signupInteractor) {
         Log.d(LOG_TAG, "Constructor");
-        this.loginInteractor = loginInteractor;
+        this.signupInteractor = signupInteractor;
     }
-    
+
     @Override
     public void onStart() {
-
     }
 
     @Override
     public void onStop() {
-
     }
 
-    public void login(String login, String password) {
-        Log.d(LOG_TAG, "login");
+    public void goBack() {
+        getRouter().goBack();
+    }
+
+    public void signup(String login, String password) {
+        Log.d(LOG_TAG, "signup");
         if (login.length() > 0 && password.length() > 0) {
 
-            loginInteractor.execute(new Credentials(login, password), new Subscriber<User>() {
+            signupInteractor.execute(new Credentials(login, password), new Subscriber<User>() {
                 @Override
                 public void onCompleted() {
                     Log.d(LOG_TAG, "onCompleted");
-                    loginInteractor.unsubscribe();
+                    signupInteractor.unsubscribe();
                 }
 
                 @Override
@@ -52,7 +53,7 @@ public class LoginPresenter extends BaseAuthPresenter<LoginView> {
                     String error = e.getMessage();
                     Log.e(LOG_TAG, "onError: " + error);
                     getView().showError(error);
-                    loginInteractor.unsubscribe();
+                    signupInteractor.unsubscribe();
                 }
 
                 @Override
@@ -63,9 +64,5 @@ public class LoginPresenter extends BaseAuthPresenter<LoginView> {
         } else {
             getView().showError(R.string.enter_login_and_password);
         }
-    }
-
-    public void goBack() {
-        getRouter().goBack();
     }
 }

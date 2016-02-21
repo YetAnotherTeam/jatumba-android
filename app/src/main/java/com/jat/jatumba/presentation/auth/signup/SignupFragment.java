@@ -1,8 +1,7 @@
-package com.jat.jatumba.presentation.auth.login;
+package com.jat.jatumba.presentation.auth.signup;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -17,12 +16,12 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.OnClick;
 
-@Layout(id = R.layout.fragment_login)
-public class LoginFragment extends BaseAuthFragment implements LoginView {
-    private static final String LOG_TAG = "LoginFragment";
+@Layout(id = R.layout.fragment_signup)
+public class SignupFragment extends BaseAuthFragment implements SignupView {
+    private static final String LOG_TAG = "SignupFragment";
 
     @Inject
-    LoginPresenter loginPresenter;
+    SignupPresenter signupPresenter;
 
     @Bind(R.id.login)
     TextView loginTextView;
@@ -30,27 +29,27 @@ public class LoginFragment extends BaseAuthFragment implements LoginView {
     @Bind(R.id.password)
     EditText passwordEditText;
 
-    @Bind(R.id.login_button)
-    FrameLayout loginButton;
+    @Bind(R.id.signup_button)
+    FrameLayout signupButton;
 
     @OnClick(R.id.back_button)
     public void onClickBackButton() {
         Log.d(LOG_TAG, "onClickBackButton");
-        loginPresenter.goBack();
+        signupPresenter.goBack();
     }
 
-    @OnClick(R.id.login_button)
-    public void onClickLoginButton() {
+    @OnClick(R.id.signup_button)
+    public void onClickSignupButton() {
         Log.d(LOG_TAG, "onClickLoginButton");
         String login = loginTextView.getText().toString();
         String password = passwordEditText.getText().toString();
-        loginPresenter.login(login, password);
+        signupPresenter.signup(login, password);
     }
 
     @NonNull
     @Override
     protected BasePresenter getPresenter() {
-        return loginPresenter;
+        return signupPresenter;
     }
 
     @Override

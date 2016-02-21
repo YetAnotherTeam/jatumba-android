@@ -1,4 +1,4 @@
-package com.jat.jatumba.domain.auth.login;
+package com.jat.jatumba.domain.auth.signup;
 
 import com.jat.jatumba.data.retrofit.APIInterface;
 import com.jat.jatumba.domain.auth.common.Credentials;
@@ -13,13 +13,12 @@ import rx.Observable;
 import rx.Scheduler;
 
 /**
- * Created by bulat on 18.02.16.
+ * Created by bulat on 22.02.16.
  */
-public class LoginInteractor extends Interactor<User, Credentials> {
+public class SignupInteractor extends Interactor<User, Credentials> {
     private final APIInterface apiInterface;
-
     @Inject
-    public LoginInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
+    public SignupInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
                            @Named(DomainModule.UI) Scheduler uiScheduler, APIInterface apiInterface) {
         super(jobScheduler, uiScheduler);
         this.apiInterface = apiInterface;
@@ -27,6 +26,6 @@ public class LoginInteractor extends Interactor<User, Credentials> {
 
     @Override
     protected Observable<User> buildObservable(Credentials credentials) {
-        return apiInterface.authUser(credentials.getLogin(), credentials.getPassword());
+        return apiInterface.signupUser(credentials.getLogin(), credentials.getPassword());
     }
 }

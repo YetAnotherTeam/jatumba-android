@@ -2,7 +2,7 @@ package com.jat.jatumba.presentation.injection;
 
 import com.jat.jatumba.presentation.auth.login.LoginFragment;
 import com.jat.jatumba.presentation.auth.menu.MenuFragment;
-import com.jat.jatumba.presentation.auth.signUp.SignUpFragment;
+import com.jat.jatumba.presentation.auth.signup.SignupFragment;
 
 import javax.inject.Singleton;
 
@@ -13,7 +13,7 @@ import dagger.Component;
 public interface AuthActivityComponent {
     void inject(LoginFragment loginFragment);
 
-    void inject(SignUpFragment signUpFragment);
+    void inject(SignupFragment signUpFragment);
 
     void inject(MenuFragment menuFragment);
 }

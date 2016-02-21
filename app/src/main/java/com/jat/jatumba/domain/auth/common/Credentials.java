@@ -1,4 +1,4 @@
-package com.jat.jatumba.domain.auth.login;
+package com.jat.jatumba.domain.auth.common;
 
 /**
  * Created by bulat on 18.02.16.

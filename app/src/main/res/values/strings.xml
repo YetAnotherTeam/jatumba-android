@@ -6,14 +6,16 @@
     <string name="error">Apllication error! Sorry…</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
-    <string name="do_login">Войти</string>
-    <string name="register">Зарегистрироваться</string>
-    <string name="prompt_login">Введи логин</string>
-    <string name="prompt_password">Введи пароль</string>
-    <string name="action_sign_in_short">Login!!!</string>
+    <string name="do_login">Login</string>
+    <string name="register">Sign Up</string>
+    <string name="prompt_login">Enter Login</string>
+    <string name="prompt_password">Enter password</string>
     <string name="sign_in_with">Sign in with</string>
     <string name="or_sign_up_with">or sign up with</string>
     <string name="email">Email</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="log_in_here">Log in here.</string>
+    <string name="cancel">Cancel</string>
+    <string name="prompt_username">Enter username</string>
+    <string name="enter_login_and_password">Enter login and password.</string>
 </resources>

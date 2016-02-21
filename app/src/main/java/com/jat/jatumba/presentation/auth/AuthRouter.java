@@ -4,4 +4,5 @@ public interface AuthRouter {
     void openLogin();
     void openSignUp();
     void openMenu();
+    void goBack();
 }
