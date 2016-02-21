@@ -1,4 +1,4 @@
-package com.jat.jatumba.domain.auth.preload;
+package com.jat.jatumba.domain.auth.menu;
 
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.presentation.injection.DomainModule;
@@ -14,11 +14,11 @@ import rx.Scheduler;
 /**
  * Created by bulat on 16.02.16.
  */
-public class PreloadInteractor extends Interactor<Boolean, Void> {
-    private final static int PRELOAD_TIME = 2;
+public class MenuInteractor extends Interactor<Boolean, Void> {
+    private final static int PRELOAD_TIME = 200;
     @Inject
-    public PreloadInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
-                             @Named(DomainModule.UI) Scheduler iuScheduler) {
+    public MenuInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
+                          @Named(DomainModule.UI) Scheduler iuScheduler) {
         super(jobScheduler, iuScheduler);
     }
 

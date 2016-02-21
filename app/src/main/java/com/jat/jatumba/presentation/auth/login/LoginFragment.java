@@ -1,11 +1,7 @@
 package com.jat.jatumba.presentation.auth.login;
 
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -20,14 +16,18 @@ import butterknife.Bind;
 import butterknife.OnClick;
 
 @Layout(id = R.layout.fragment_login)
-public class LoginFragment extends BaseAuthFragment {
+public class LoginFragment extends BaseAuthFragment implements LoginView {
     private static final String LOG_TAG = "LoginFragment";
+
     @Inject
     LoginPresenter loginPresenter;
+
     @Bind(R.id.login)
     EditText loginEditText;
+
     @Bind(R.id.password)
     EditText passwordEditText;
+
     @Bind(R.id.login_button)
     Button loginButton;
 

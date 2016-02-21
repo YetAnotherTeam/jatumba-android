@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.jat.jatumba.R;
 import com.jat.jatumba.presentation.auth.login.LoginFragment;
-import com.jat.jatumba.presentation.auth.preloader.PreloaderFragment;
+import com.jat.jatumba.presentation.auth.menu.MenuFragment;
 import com.jat.jatumba.presentation.auth.signUp.SignUpFragment;
 import com.jat.jatumba.presentation.common.BaseActivity;
 import com.jat.jatumba.presentation.common.Layout;
@@ -28,7 +28,7 @@ public class AuthActivity extends BaseActivity implements AuthRouter {
                         .domainModule(new DomainModule())
                         .build();
         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-            openPreloader();
+            openMenu();
         }
     }
 
@@ -38,16 +38,16 @@ public class AuthActivity extends BaseActivity implements AuthRouter {
 
     @Override
     public void openLogin() {
-        addBackStack(new LoginFragment(), false);
+        addBackStack(new LoginFragment());
     }
 
     @Override
     public void openSignUp() {
-        addBackStack(new SignUpFragment(), false);
+        addBackStack(new SignUpFragment());
     }
 
     @Override
-    public void openPreloader() {
-        addBackStack(new PreloaderFragment(), false);
+    public void openMenu() {
+        addBackStack(new MenuFragment(), false);
     }
 }

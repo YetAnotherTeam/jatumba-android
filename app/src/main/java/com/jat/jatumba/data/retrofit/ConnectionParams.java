@@ -5,5 +5,5 @@ package com.jat.jatumba.data.retrofit;
  */
 public interface ConnectionParams {
     String SCHEMA = "http://";
-    String HOST = "192.168.1.1";
+    String HOST = "127.0.0.1:8000";
 }

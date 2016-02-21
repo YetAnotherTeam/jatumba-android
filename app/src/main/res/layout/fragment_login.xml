@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
@@ -22,10 +21,12 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/TextInputLayoutStyle">
 
                 <AutoCompleteTextView
                     android:id="@+id/login"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_login"
@@ -37,7 +38,8 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:theme="@style/TextInputLayoutStyle">
 
                 <EditText
                     android:id="@+id/password"
@@ -61,7 +63,6 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/do_login"
                 android:textStyle="bold" />
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -22,7 +22,8 @@ public abstract class Interactor<ResultType, ParameterType> {
         subscription.add(buildObservable(parameter)
                 .subscribeOn(jobScheduler)
                 .observeOn(uiScheduler)
-                .subscribe(subscriber));
+                .subscribe(subscriber)
+        );
     }
 
     public void execute(Subscriber<ResultType> subscriber) {

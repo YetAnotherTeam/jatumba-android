@@ -32,7 +32,7 @@ public class LoginPresenter extends BaseAuthPresenter<LoginView> {
 
     @Override
     public void onStop() {
-        loginInteractor.unsubscribe();
+
     }
 
     public void login(String login, String password) {
@@ -41,12 +41,15 @@ public class LoginPresenter extends BaseAuthPresenter<LoginView> {
             @Override
             public void onCompleted() {
                 Log.d(LOG_TAG, "onCompleted");
+                loginInteractor.unsubscribe();
             }
 
             @Override
             public void onError(Throwable e) {
-                Log.e(LOG_TAG, "onError: " + e);
-                getView().showError(e.getMessage());
+                String error = e.getMessage();
+                Log.e(LOG_TAG, "onError: " + error);
+                getView().showError(error);
+                loginInteractor.unsubscribe();
             }
 
             @Override
