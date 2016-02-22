@@ -41,17 +41,17 @@ public class AuthActivity extends BaseActivity implements AuthRouter {
     public void openLogin() {
         // TODO временно чтобы разработка шла полным ходом
         openMain();
-        // addBackStack(new LoginFragment());
+        // replaceToFragment(new LoginFragment());
     }
 
     @Override
     public void openSignUp() {
-        addBackStack(new SignupFragment());
+        replaceToFragment(new SignupFragment());
     }
 
     @Override
     public void openMenu() {
-        addBackStack(new MenuFragment(), false);
+        replaceToFragment(new MenuFragment(), false);
     }
 
     @Override

@@ -7,6 +7,8 @@ import com.jat.jatumba.R;
 import com.jat.jatumba.presentation.auth.common.BaseAuthFragment;
 import com.jat.jatumba.presentation.common.BasePresenter;
 import com.jat.jatumba.presentation.common.Layout;
+import com.vk.sdk.VKScope;
+import com.vk.sdk.VKSdk;
 
 import javax.inject.Inject;
 
@@ -22,6 +24,8 @@ public class MenuFragment extends BaseAuthFragment implements MenuView {
     @OnClick(R.id.vk_button)
     public void onClickVkButton() {
         Log.d(LOG_TAG, "onClickVkButton");
+        // TODO возможно ли переписать в VIPER стиль
+        VKSdk.login(this, VKScope.EMAIL);
     }
 
     @OnClick(R.id.ok_button)

@@ -1,13 +1,12 @@
 package com.jat.jatumba.presentation.common;
 
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 
 import com.google.common.base.Preconditions;
 import com.jat.jatumba.R;
-import com.jat.jatumba.presentation.auth.common.BaseAuthFragment;
 
 import java.lang.annotation.Annotation;
 
@@ -40,15 +39,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         ButterKnife.unbind(this);
     }
 
-    protected void addBackStack(BaseAuthFragment fragment) {
-        addBackStack(fragment, true);
+    protected void replaceToFragment(BaseFragment fragment) {
+        replaceToFragment(fragment, true);
     }
 
-    protected void addBackStack(BaseAuthFragment fragment, boolean addBackStack) {
+    protected void replaceToFragment(BaseFragment fragment, boolean addToBackStack) {
         Preconditions.checkNotNull(fragment);
-        FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction tx = getFragmentManager().beginTransaction();
         tx.replace(R.id.content, fragment);
-        if (addBackStack) {
+        if (addToBackStack) {
             tx.addToBackStack(fragment.getFragmentName());
         }
         tx.commit();

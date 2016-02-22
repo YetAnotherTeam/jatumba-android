@@ -1,8 +1,11 @@
 <resources>
+    <!-- Ключи сервисов -->
+    <integer name="com_vk_sdk_AppId">5312521</integer>
+
     <string name="app_name">JATumba</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="tracks">Compositions</string>
-    <string name="groups">Groups</string>
+    <string name="bands">Bands</string>
     <string name="error">Apllication error! Sorry…</string>
     <string name="login">Login</string>
     <string name="password">Password</string>

@@ -31,19 +31,20 @@ public abstract class DrawerActivity extends BaseActivity {
 
     private Drawer mDrawer;
     private Handler mHandler;
+
     @Bind(R.id.toolbar)
     protected Toolbar toolbar;
 
     public enum NavigationDrawerItem {
-        TRACKS(R.drawable.ic_music_note_black_18dp, R.string.tracks, TracksFragment.class),
-        BANDS(R.drawable.ic_group_black_18dp, R.string.groups, BandsFragment.class);
+        TRACKS(R.drawable.ic_music_note_black_18dp, R.string.tracks, new TracksFragment()),
+        BANDS(R.drawable.ic_group_black_18dp, R.string.bands, new BandsFragment());
 
         private int name;
         private int icon;
-        private Class<? extends BaseFragment> fragment;
+        private BaseFragment fragment;
         private boolean isDivider = false;
 
-        NavigationDrawerItem(int icon, int name, Class<? extends BaseFragment> fragment) {
+        NavigationDrawerItem(int icon, int name, BaseFragment fragment) {
             this.icon = icon;
             this.name = name;
             this.fragment = fragment;
@@ -61,7 +62,7 @@ public abstract class DrawerActivity extends BaseActivity {
             return icon;
         }
 
-        public Class<? extends BaseFragment> getFragment() {
+        public BaseFragment getFragment() {
             return fragment;
         }
 
@@ -87,7 +88,7 @@ public abstract class DrawerActivity extends BaseActivity {
 //        this.toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         if (toolbar != null) {
-            setSupportActionBar(this.toolbar);
+            setSupportActionBar(toolbar);
         }
 
         // If current navigation drawer presents,
@@ -198,12 +199,7 @@ public abstract class DrawerActivity extends BaseActivity {
 //        }
 
         // Launch the target Activity after a short delay, to allow the close animation to play
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                navigateTo(item);
-            }
-        }, NAVDRAWER_LAUNCH_DELAY);
+        mHandler.postDelayed(() -> navigateTo(item), NAVDRAWER_LAUNCH_DELAY);
     }
 
     /**
@@ -212,18 +208,7 @@ public abstract class DrawerActivity extends BaseActivity {
      * @param item navigation drawer item
      */
     private void navigateTo(NavigationDrawerItem item) {
-        Intent intent = new Intent();
-        intent.setClass(this, item.getFragment());
-
-        try {
-            startActivity(intent);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // Disable activity animation
-        overridePendingTransition(0, 0);
-        finish();
+        replaceToFragment(item.getFragment(), false);
     }
 
     /**
