@@ -1,15 +1,12 @@
-package com.jat.jatumba.presentation.auth.authCommon;
+package com.jat.jatumba.presentation.auth.common;
 
 
 import android.os.Bundle;
-import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 
 import com.jat.jatumba.presentation.common.BaseFragment;
 import com.jat.jatumba.presentation.auth.AuthActivity;
 import com.jat.jatumba.presentation.injection.AuthActivityComponent;
-
-import javax.annotation.Resource;
 
 public abstract class BaseAuthFragment extends BaseFragment implements BaseAuthView {
     @Override

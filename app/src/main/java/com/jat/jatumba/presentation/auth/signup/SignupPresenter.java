@@ -6,7 +6,7 @@ import com.jat.jatumba.R;
 import com.jat.jatumba.domain.auth.common.Credentials;
 import com.jat.jatumba.domain.auth.signup.SignupInteractor;
 import com.jat.jatumba.domain.main.users.User;
-import com.jat.jatumba.presentation.auth.authCommon.BaseAuthPresenter;
+import com.jat.jatumba.presentation.auth.common.BaseAuthPresenter;
 
 import javax.inject.Inject;
 

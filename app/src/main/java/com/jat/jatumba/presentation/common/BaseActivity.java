@@ -7,7 +7,7 @@ import android.view.Menu;
 
 import com.google.common.base.Preconditions;
 import com.jat.jatumba.R;
-import com.jat.jatumba.presentation.auth.authCommon.BaseAuthFragment;
+import com.jat.jatumba.presentation.auth.common.BaseAuthFragment;
 
 import java.lang.annotation.Annotation;
 
@@ -19,7 +19,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Class cls = getClass();
-        if (!cls.isAnnotationPresent(Layout.class)) return;
+        if (!cls.isAnnotationPresent(Layout.class)) {
+            return;
+        }
         Annotation annotation = cls.getAnnotation(Layout.class);
         Layout layout = (Layout) annotation;
         setContentView(layout.id());

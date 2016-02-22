@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.jat.jatumba.R;
-import com.jat.jatumba.presentation.auth.authCommon.BaseAuthFragment;
+import com.jat.jatumba.presentation.auth.common.BaseAuthFragment;
 import com.jat.jatumba.presentation.common.BasePresenter;
 import com.jat.jatumba.presentation.common.Layout;
 

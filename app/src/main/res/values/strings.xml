@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">JATumba</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="compositions">Compositions</string>
-    <string name="group">Group</string>
+    <string name="tracks">Compositions</string>
+    <string name="groups">Groups</string>
     <string name="error">Apllication error! Sorry…</string>
     <string name="login">Login</string>
     <string name="password">Password</string>

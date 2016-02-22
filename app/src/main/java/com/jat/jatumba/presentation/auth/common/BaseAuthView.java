@@ -1,4 +1,4 @@
-package com.jat.jatumba.presentation.auth.authCommon;
+package com.jat.jatumba.presentation.auth.common;
 
 public interface BaseAuthView {
     void showError(String message);

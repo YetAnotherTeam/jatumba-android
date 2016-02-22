@@ -1,6 +1,5 @@
-package com.jat.jatumba.presentation.common.ui.activity;
+package com.jat.jatumba.presentation.main;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +9,10 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.jat.jatumba.R;
+import com.jat.jatumba.presentation.common.BaseActivity;
+import com.jat.jatumba.presentation.common.BaseFragment;
+import com.jat.jatumba.presentation.main.bands.BandsFragment;
+import com.jat.jatumba.presentation.main.tracks.TracksFragment;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -18,29 +21,32 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 import java.util.ArrayList;
+
+import butterknife.Bind;
 
 public abstract class DrawerActivity extends BaseActivity {
     private static final int NAVDRAWER_LAUNCH_DELAY = 258;
 
     private Drawer mDrawer;
     private Handler mHandler;
+    @Bind(R.id.toolbar)
+    protected Toolbar toolbar;
 
     public enum NavigationDrawerItem {
-        COMPOSITIONS(R.drawable.ic_music_note_black_18dp, R.string.compositions, MainActivity.class),
-        GROUP(R.drawable.ic_group_black_18dp, R.string.group, MainActivity.class);
+        TRACKS(R.drawable.ic_music_note_black_18dp, R.string.tracks, TracksFragment.class),
+        BANDS(R.drawable.ic_group_black_18dp, R.string.groups, BandsFragment.class);
 
         private int name;
         private int icon;
-        private Class<? extends Activity> activity;
+        private Class<? extends BaseFragment> fragment;
         private boolean isDivider = false;
 
-        NavigationDrawerItem(int icon, int name, Class<? extends Activity> activity) {
+        NavigationDrawerItem(int icon, int name, Class<? extends BaseFragment> fragment) {
             this.icon = icon;
             this.name = name;
-            this.activity = activity;
+            this.fragment = fragment;
         }
 
         NavigationDrawerItem(boolean isDivider) {
@@ -55,8 +61,8 @@ public abstract class DrawerActivity extends BaseActivity {
             return icon;
         }
 
-        public Class<? extends Activity> getActivity() {
-            return activity;
+        public Class<? extends BaseFragment> getFragment() {
+            return fragment;
         }
 
         public boolean isDivider() {
@@ -64,18 +70,9 @@ public abstract class DrawerActivity extends BaseActivity {
         }
     }
 
-    protected Toolbar toolbar;
-
-    /**
-     * @return current navigation drawer item,
-     * which would be displayed as selected
-     */
-    public abstract NavigationDrawerItem getCurrentNavDrawerItem();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mHandler = new Handler();
     }
 
@@ -87,7 +84,7 @@ public abstract class DrawerActivity extends BaseActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
-        this.toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        this.toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         if (toolbar != null) {
             setSupportActionBar(this.toolbar);
@@ -95,20 +92,20 @@ public abstract class DrawerActivity extends BaseActivity {
 
         // If current navigation drawer presents,
         // init navigation drawer
-        if (getCurrentNavDrawerItem() != null) {
-            createDrawer();
-            mDrawer.setSelection(
-                    getCurrentNavDrawerItem().ordinal(),
-                    false
-            );
-        } else {
+//        if (getCurrentNavDrawerItem() != null) {
+//            createDrawer();
+//            mDrawer.setSelection(
+//                    getCurrentNavDrawerItem().ordinal(),
+//                    false
+//            );
+//        } else {
             if (getSupportActionBar() != null) {
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                 if (getHomeAsUpIndicator() != 0) {
                     getSupportActionBar().setHomeAsUpIndicator(getHomeAsUpIndicator());
                 }
             }
-        }
+//        }
     }
 
     /**
@@ -125,14 +122,6 @@ public abstract class DrawerActivity extends BaseActivity {
                 .withHeaderBackground(R.drawable.header)
                 .withAlternativeProfileHeaderSwitching(false)
                 .withSelectionListEnabled(false)
-                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
-                    @Override
-                    public boolean onProfileChanged(View view, IProfile profile, boolean current) {
-                        Intent intent = new Intent(DrawerActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        return true;
-                    }
-                })
                 .build();
 
         ArrayList<IDrawerItem> items = new ArrayList<>();
@@ -156,12 +145,9 @@ public abstract class DrawerActivity extends BaseActivity {
                 .withActionBarDrawerToggle(true)
                 .withAccountHeader(header)
                 .withDrawerItems(items)
-                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                    @Override
-                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        onNavDrawerItemClicked(NavigationDrawerItem.values()[drawerItem.getIdentifier()]);
-                        return true;
-                    }
+                .withOnDrawerItemClickListener((view, position, drawerItem) -> {
+                    onNavDrawerItemClicked(NavigationDrawerItem.values()[drawerItem.getIdentifier()]);
+                    return true;
                 })
                 .withCloseOnClick(false)
                 .withOnDrawerListener(new Drawer.OnDrawerListener() {
@@ -207,9 +193,9 @@ public abstract class DrawerActivity extends BaseActivity {
     private void onNavDrawerItemClicked(final NavigationDrawerItem item) {
         mDrawer.closeDrawer();
 
-        if (item == getCurrentNavDrawerItem()) {
-            return;
-        }
+//        if (item == getCurrentNavDrawerItem()) {
+//            return;
+//        }
 
         // Launch the target Activity after a short delay, to allow the close animation to play
         mHandler.postDelayed(new Runnable() {
@@ -227,7 +213,7 @@ public abstract class DrawerActivity extends BaseActivity {
      */
     private void navigateTo(NavigationDrawerItem item) {
         Intent intent = new Intent();
-        intent.setClass(this, item.getActivity());
+        intent.setClass(this, item.getFragment());
 
         try {
             startActivity(intent);

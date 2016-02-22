@@ -29,6 +29,10 @@ public class User implements Serializable {
         return lastName;
     }
 
+    public String getFullName() {
+        return String.format("%s %s", firstName, lastName);
+    }
+
     public String getProfession() {
         return profession;
     }

@@ -2,12 +2,9 @@ package com.jat.jatumba.presentation.auth.menu;
 
 import android.util.Log;
 
-import com.jat.jatumba.domain.auth.menu.MenuInteractor;
-import com.jat.jatumba.presentation.auth.authCommon.BaseAuthPresenter;
+import com.jat.jatumba.presentation.auth.common.BaseAuthPresenter;
 
 import javax.inject.Inject;
-
-import rx.Subscriber;
 
 /**
  * Created by bulat on 15.02.16.
