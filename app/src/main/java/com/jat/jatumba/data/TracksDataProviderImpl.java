@@ -2,7 +2,7 @@ package com.jat.jatumba.data;
 
 import com.jat.jatumba.domain.main.tracks.Message;
 import com.jat.jatumba.domain.main.tracks.MessagesDataProvider;
-import com.jat.jatumba.domain.main.users.User;
+import com.jat.jatumba.data.model.User;
 
 import java.util.ArrayList;
 import java.util.Date;

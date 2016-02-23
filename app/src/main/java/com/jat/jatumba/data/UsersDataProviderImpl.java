@@ -2,9 +2,8 @@ package com.jat.jatumba.data;
 
 
 import com.jat.jatumba.data.retrofit.APIInterface;
-import com.jat.jatumba.domain.main.users.User;
+import com.jat.jatumba.data.model.User;
 import com.jat.jatumba.domain.main.users.UsersDataProvider;
-import com.jat.jatumba.presentation.injection.AuthActivityComponent;
 import com.jat.jatumba.presentation.injection.DomainModule;
 
 import java.util.ArrayList;

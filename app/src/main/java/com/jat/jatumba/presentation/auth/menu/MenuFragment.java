@@ -10,7 +10,6 @@ import com.jat.jatumba.presentation.common.BasePresenter;
 import com.jat.jatumba.presentation.common.Layout;
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKCallback;
-import com.vk.sdk.VKScope;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKError;
 
@@ -28,8 +27,7 @@ public class MenuFragment extends BaseAuthFragment implements MenuView {
     @OnClick(R.id.vk_button)
     public void onClickVkButton() {
         Log.d(LOG_TAG, "onClickVkButton");
-        // TODO возможно ли переписать в VIPER стиль
-        VKSdk.login(this, VKScope.EMAIL);
+        menuPresenter.vkLogin(this);
     }
 
     @OnClick(R.id.ok_button)
@@ -45,7 +43,7 @@ public class MenuFragment extends BaseAuthFragment implements MenuView {
     @OnClick(R.id.email_button)
     public void onClickEmailButton() {
         Log.d(LOG_TAG, "onClickEmailButton");
-        menuPresenter.openSignUp();
+        menuPresenter.openSignup();
     }
 
     @OnClick(R.id.login_button)

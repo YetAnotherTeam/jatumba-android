@@ -1,6 +1,5 @@
 package com.jat.jatumba.presentation.main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.Toolbar;
@@ -31,6 +30,7 @@ public abstract class DrawerActivity extends BaseActivity {
 
     private Drawer mDrawer;
     private Handler mHandler;
+    private NavigationDrawerItem currentNavDrawerItem;
 
     @Bind(R.id.toolbar)
     protected Toolbar toolbar;
@@ -85,28 +85,26 @@ public abstract class DrawerActivity extends BaseActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
-//        this.toolbar = (Toolbar) findViewById(R.id.toolbar);
-
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
 
         // If current navigation drawer presents,
         // init navigation drawer
-//        if (getCurrentNavDrawerItem() != null) {
-//            createDrawer();
-//            mDrawer.setSelection(
-//                    getCurrentNavDrawerItem().ordinal(),
-//                    false
-//            );
-//        } else {
+        if (currentNavDrawerItem != null) {
+            createDrawer();
+            mDrawer.setSelection(
+                    currentNavDrawerItem.ordinal(),
+                    false
+            );
+        } else {
             if (getSupportActionBar() != null) {
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                 if (getHomeAsUpIndicator() != 0) {
                     getSupportActionBar().setHomeAsUpIndicator(getHomeAsUpIndicator());
                 }
             }
-//        }
+        }
     }
 
     /**
@@ -193,21 +191,15 @@ public abstract class DrawerActivity extends BaseActivity {
      */
     private void onNavDrawerItemClicked(final NavigationDrawerItem item) {
         mDrawer.closeDrawer();
-
-//        if (item == getCurrentNavDrawerItem()) {
-//            return;
-//        }
-
-        // Launch the target Activity after a short delay, to allow the close animation to play
+        if (item == currentNavDrawerItem) {
+            return;
+        }
+        // Launch the target Fragment after a short delay, to allow the close animation to play
         mHandler.postDelayed(() -> navigateTo(item), NAVDRAWER_LAUNCH_DELAY);
     }
 
-    /**
-     * Opens appropriate activity
-     *
-     * @param item navigation drawer item
-     */
     private void navigateTo(NavigationDrawerItem item) {
+        currentNavDrawerItem = item;
         replaceToFragment(item.getFragment(), false);
     }
 
@@ -218,7 +210,6 @@ public abstract class DrawerActivity extends BaseActivity {
     private void closeKeyboard() {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         View currentFocus = getCurrentFocus();
-
         if (currentFocus != null) {
             inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
         }

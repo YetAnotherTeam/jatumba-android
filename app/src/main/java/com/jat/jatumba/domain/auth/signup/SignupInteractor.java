@@ -3,7 +3,7 @@ package com.jat.jatumba.domain.auth.signup;
 import com.jat.jatumba.data.retrofit.APIInterface;
 import com.jat.jatumba.domain.auth.common.Credentials;
 import com.jat.jatumba.domain.common.Interactor;
-import com.jat.jatumba.domain.main.users.User;
+import com.jat.jatumba.data.model.User;
 import com.jat.jatumba.presentation.injection.DomainModule;
 
 import javax.inject.Inject;

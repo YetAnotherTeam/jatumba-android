@@ -3,6 +3,7 @@ package com.jat.jatumba.presentation.common;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import butterknife.ButterKnife;
 
 public abstract class BaseFragment extends Fragment {
+    private static final String LOG_TAG = "BaseFragment";
     private static final AtomicInteger lastFragmentId = new AtomicInteger(0);
     private final int fragmentId;
 
@@ -22,6 +24,7 @@ public abstract class BaseFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Log.d(LOG_TAG, "onCreateView");
         Class cls = getClass();
         if (!cls.isAnnotationPresent(Layout.class)) return null;
         Annotation annotation = cls.getAnnotation(Layout.class);
@@ -33,6 +36,7 @@ public abstract class BaseFragment extends Fragment {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
+        Log.d(LOG_TAG, "onActivityCreated");
         super.onActivityCreated(savedInstanceState);
         inject();
         //noinspection unchecked

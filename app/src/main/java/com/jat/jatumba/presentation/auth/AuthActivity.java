@@ -7,6 +7,7 @@ import com.jat.jatumba.R;
 import com.jat.jatumba.presentation.auth.menu.MenuFragment;
 import com.jat.jatumba.presentation.auth.signup.SignupFragment;
 import com.jat.jatumba.presentation.common.BaseActivity;
+import com.jat.jatumba.presentation.common.BaseFragment;
 import com.jat.jatumba.presentation.common.Layout;
 import com.jat.jatumba.presentation.injection.AuthActivityComponent;
 import com.jat.jatumba.presentation.injection.DaggerAuthActivityComponent;
@@ -40,7 +41,7 @@ public class AuthActivity extends BaseActivity implements AuthRouter {
     @Override
     public void openLogin() {
         // TODO временно чтобы разработка шла полным ходом
-        openMain();
+        openMainActivity();
         // replaceToFragment(new LoginFragment());
     }
 
@@ -51,7 +52,8 @@ public class AuthActivity extends BaseActivity implements AuthRouter {
 
     @Override
     public void openMenu() {
-        replaceToFragment(new MenuFragment(), false);
+        BaseFragment fragment = new MenuFragment();
+        replaceToFragment(fragment, false);
     }
 
     @Override
@@ -60,7 +62,7 @@ public class AuthActivity extends BaseActivity implements AuthRouter {
     }
 
     @Override
-    public void openMain() {
+    public void openMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();

@@ -1,5 +1,6 @@
 package com.jat.jatumba.domain.main.users;
 
+import com.jat.jatumba.data.model.User;
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.presentation.injection.DomainModule;
 
@@ -17,9 +18,9 @@ public class GetUsersInteractor extends Interactor<List<User>, Void> {
 
     @Inject
     public GetUsersInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
-                              @Named(DomainModule.UI) Scheduler iuScheduler,
+                              @Named(DomainModule.UI) Scheduler uiScheduler,
                               UsersDataProvider contactsDataProvider) {
-        super(jobScheduler, iuScheduler);
+        super(jobScheduler, uiScheduler);
         this.contactsDataProvider = contactsDataProvider;
     }
 

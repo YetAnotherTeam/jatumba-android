@@ -18,9 +18,9 @@ public class GetUsersInteractor extends Interactor<List<Message>, Void> {
 
     @Inject
     public GetUsersInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
-                              @Named(DomainModule.UI) Scheduler iuScheduler,
+                              @Named(DomainModule.UI) Scheduler uiScheduler,
                               MessagesDataProvider messagesDataProvider) {
-        super(jobScheduler, iuScheduler);
+        super(jobScheduler, uiScheduler);
         this.messagesDataProvider = messagesDataProvider;
     }
 

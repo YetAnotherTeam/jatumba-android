@@ -18,8 +18,8 @@ public class MenuInteractor extends Interactor<Boolean, Void> {
     private final static int PRELOAD_TIME = 200;
     @Inject
     public MenuInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
-                          @Named(DomainModule.UI) Scheduler iuScheduler) {
-        super(jobScheduler, iuScheduler);
+                          @Named(DomainModule.UI) Scheduler uiScheduler) {
+        super(jobScheduler, uiScheduler);
     }
 
     @Override

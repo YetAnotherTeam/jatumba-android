@@ -3,7 +3,7 @@ package com.jat.jatumba.domain.main.teams;
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.domain.main.tracks.Message;
 import com.jat.jatumba.domain.main.tracks.MessagesDataProvider;
-import com.jat.jatumba.domain.main.users.User;
+import com.jat.jatumba.data.model.User;
 import com.jat.jatumba.presentation.injection.DomainModule;
 
 import java.util.List;
@@ -19,9 +19,9 @@ public class GetTeamsInteractor extends Interactor<List<Message>, User> {
 
     @Inject
     public GetTeamsInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
-                              @Named(DomainModule.UI) Scheduler iuScheduler,
+                              @Named(DomainModule.UI) Scheduler uiScheduler,
                               MessagesDataProvider messagesDataProvider) {
-        super(jobScheduler, iuScheduler);
+        super(jobScheduler, uiScheduler);
         this.messagesDataProvider = messagesDataProvider;
     }
 
