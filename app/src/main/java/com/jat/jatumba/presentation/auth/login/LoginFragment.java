@@ -32,6 +32,10 @@ public class LoginFragment extends BaseAuthFragment implements LoginView {
     @Bind(R.id.login_button)
     FrameLayout loginButton;
 
+    public LoginFragment() {
+        Log.d(LOG_TAG, "Constructor");
+    }
+
     @OnClick(R.id.back_button)
     public void onClickBackButton() {
         Log.d(LOG_TAG, "onClickBackButton");

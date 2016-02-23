@@ -1,11 +1,9 @@
 package com.jat.jatumba.presentation.injection;
 
-import com.jat.jatumba.data.UsersDataProviderImpl;
 import com.jat.jatumba.data.TracksDataProviderImpl;
 import com.jat.jatumba.data.retrofit.APIInterface;
 import com.jat.jatumba.data.retrofit.APIModule;
-import com.jat.jatumba.domain.main.tracks.MessagesDataProvider;
-import com.jat.jatumba.domain.main.users.UsersDataProvider;
+import com.jat.jatumba.domain.main.tracks.TracksDataProvider;
 
 import javax.inject.Singleton;
 
@@ -18,7 +16,7 @@ public class DataModule {
 
     @Singleton
     @Provides
-    public MessagesDataProvider provideNotesDataProvider() {
+    public TracksDataProvider provideNotesDataProvider() {
         return new TracksDataProviderImpl();
     }
 

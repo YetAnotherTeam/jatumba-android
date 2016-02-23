@@ -24,6 +24,10 @@ public class MenuFragment extends BaseAuthFragment implements MenuView {
     @Inject
     MenuPresenter menuPresenter;
 
+    public MenuFragment() {
+        Log.d(LOG_TAG, "Constructor");
+    }
+
     @OnClick(R.id.vk_button)
     public void onClickVkButton() {
         Log.d(LOG_TAG, "onClickVkButton");

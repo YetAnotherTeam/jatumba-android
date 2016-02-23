@@ -3,7 +3,6 @@ package com.jat.jatumba.presentation.main;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
@@ -29,25 +28,28 @@ public abstract class DrawerActivity extends BaseActivity {
     private static final int NAVDRAWER_LAUNCH_DELAY = 258;
 
     private Drawer mDrawer;
+
     private Handler mHandler;
+
     private NavigationDrawerItem currentNavDrawerItem;
 
     @Bind(R.id.toolbar)
     protected Toolbar toolbar;
 
     public enum NavigationDrawerItem {
-        TRACKS(R.drawable.ic_music_note_black_18dp, R.string.tracks, new TracksFragment()),
-        BANDS(R.drawable.ic_group_black_18dp, R.string.bands, new BandsFragment());
+        TRACKS(R.drawable.ic_music_note_black_18dp, R.string.tracks),
+        BANDS(R.drawable.ic_group_black_18dp, R.string.bands),
+        SETTINGS(R.drawable.ic_settings_black_18dp, R.string.settings),
+        DIVIDER(true),
+        LOG_OUT(R.drawable.ic_exit_to_app_black_18dp, R.string.log_out);
 
         private int name;
         private int icon;
-        private BaseFragment fragment;
         private boolean isDivider = false;
 
-        NavigationDrawerItem(int icon, int name, BaseFragment fragment) {
+        NavigationDrawerItem(int icon, int name) {
             this.icon = icon;
             this.name = name;
-            this.fragment = fragment;
         }
 
         NavigationDrawerItem(boolean isDivider) {
@@ -60,10 +62,6 @@ public abstract class DrawerActivity extends BaseActivity {
 
         public int getIcon() {
             return icon;
-        }
-
-        public BaseFragment getFragment() {
-            return fragment;
         }
 
         public boolean isDivider() {
@@ -84,20 +82,16 @@ public abstract class DrawerActivity extends BaseActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-
+        createDrawer();
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
 
-        // If current navigation drawer presents,
-        // init navigation drawer
         if (currentNavDrawerItem != null) {
-            createDrawer();
             mDrawer.setSelection(
                     currentNavDrawerItem.ordinal(),
                     false
             );
-        } else {
             if (getSupportActionBar() != null) {
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                 if (getHomeAsUpIndicator() != 0) {
@@ -138,7 +132,7 @@ public abstract class DrawerActivity extends BaseActivity {
             }
         }
 
-        this.mDrawer = new DrawerBuilder()
+        mDrawer = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
                 .withActionBarDrawerToggle(true)
@@ -167,28 +161,6 @@ public abstract class DrawerActivity extends BaseActivity {
                 .build();
     }
 
-    /**
-     * Set badge to navigation drawer item
-     *
-     * @param item navigation drawer item
-     * @param text badge text
-     */
-    protected void setBadge(NavigationDrawerItem item, String text) {
-        try {
-            PrimaryDrawerItem drawerItem = (PrimaryDrawerItem) mDrawer.getDrawerItem(item.ordinal());
-            drawerItem.withBadge(text);
-            mDrawer.updateItem(drawerItem);
-        } catch (ClassCastException e) {
-            e.printStackTrace();
-            Log.e("DrawerBaseActivity", "Navigation drawer item must be primary drawer item");
-        }
-    }
-
-    /**
-     * Called when user taps on navigation drawer item
-     *
-     * @param item current navigation drawer item
-     */
     private void onNavDrawerItemClicked(final NavigationDrawerItem item) {
         mDrawer.closeDrawer();
         if (item == currentNavDrawerItem) {
@@ -200,7 +172,25 @@ public abstract class DrawerActivity extends BaseActivity {
 
     private void navigateTo(NavigationDrawerItem item) {
         currentNavDrawerItem = item;
-        replaceToFragment(item.getFragment(), false);
+        BaseFragment fragment;
+        switch (item) {
+            case TRACKS:
+                fragment = new TracksFragment();
+                break;
+            case BANDS:
+                fragment = new BandsFragment();
+                break;
+            case SETTINGS:
+                //TODO поправить название фрагментов
+                fragment = new BandsFragment();
+                break;
+            case LOG_OUT:
+                fragment = new BandsFragment();
+                break;
+            default:
+                return;
+        }
+        replaceToFragment(fragment, false);
     }
 
     /**

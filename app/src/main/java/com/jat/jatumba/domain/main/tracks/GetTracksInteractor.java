@@ -16,14 +16,18 @@ import rx.Scheduler;
  * Created by bulat on 23.02.16.
  */
 public class GetTracksInteractor extends Interactor<List<Track>, Integer> {
+    private final TracksDataProvider tracksDataProvider;
+
     @Inject
     public GetTracksInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
-                               @Named(DomainModule.UI) Scheduler uiScheduler) {
+                               @Named(DomainModule.UI) Scheduler uiScheduler,
+                               TracksDataProvider tracksDataProvider) {
         super(jobScheduler, uiScheduler);
+        this.tracksDataProvider = tracksDataProvider;
     }
 
     @Override
     protected Observable<List<Track>> buildObservable(Integer parameter) {
-        return null;
+        return tracksDataProvider.getAllTracks(jobScheduler);
     }
 }

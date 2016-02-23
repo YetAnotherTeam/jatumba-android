@@ -2,17 +2,21 @@ package com.jat.jatumba.presentation.main.tracks;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.jat.jatumba.R;
+import com.jat.jatumba.data.model.Track;
 import com.jat.jatumba.presentation.common.BasePresenter;
 import com.jat.jatumba.presentation.common.Layout;
 import com.jat.jatumba.presentation.main.common.BaseMainFragment;
 
+import java.util.List;
+
 import javax.inject.Inject;
+
+import butterknife.Bind;
 
 /**
  * Created by bulat on 22.02.16.
@@ -23,16 +27,11 @@ public class TracksFragment extends BaseMainFragment implements TracksView {
     @Inject
     TracksPresenter tracksPresenter;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d(LOG_TAG, "onCreateView");
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
+    @Bind(R.id.tracks_recycler_view)
+    RecyclerView recyclerView;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        Log.d(LOG_TAG, "onCreate");
-        super.onCreate(savedInstanceState);
+    public TracksFragment() {
+        Log.d(LOG_TAG, "Constructor");
     }
 
     @Override
@@ -55,5 +54,13 @@ public class TracksFragment extends BaseMainFragment implements TracksView {
     @Override
     public String getTitle() {
         return getString(R.string.tracks);
+    }
+
+
+    public void setTracks(List<Track> tracks) {
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        TracksAdapter tracksAdapter = new TracksAdapter(tracks);
+        tracksAdapter.setOnItemClickListener(view -> tracksPresenter.trackSelected((Track) view.getTag()));
+        recyclerView.setAdapter(tracksAdapter);
     }
 }

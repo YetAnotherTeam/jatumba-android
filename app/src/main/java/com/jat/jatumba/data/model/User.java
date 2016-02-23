@@ -4,7 +4,9 @@ import java.io.Serializable;
 
 public class User implements Serializable {
     private int id;
+    private String username;
     private String firstName;
+    private String password;
     private String lastName;
     private String profession;
 
@@ -15,7 +17,21 @@ public class User implements Serializable {
         this.profession = profession;
     }
 
-    public User(){}
+    // Конструктор для signup
+    public User(String username, String password, String firstName, String lastName) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    // Конструктор для login
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+    public User() {
+    }
 
     public int getId() {
         return id;
@@ -37,6 +53,14 @@ public class User implements Serializable {
         return profession;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public boolean equals(Object userObject) {
         if (this == userObject) {
@@ -52,5 +76,13 @@ public class User implements Serializable {
     @Override
     public int hashCode() {
         return id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -21,6 +21,10 @@
     <string name="log_in_here">Log in here.</string>
     <string name="cancel">Cancel</string>
     <string name="prompt_username">Enter username</string>
-    <string name="enter_login_and_password">Enter login and password.</string>
+    <string name="enter_all_fields">Enter all fields.</string>
     <string name="band_members">Band members</string>
+    <string name="log_out">Log out</string>
+    <string name="prompt_first_name">Enter first name</string>
+    <string name="prompt_last_name">Enter last name</string>
+    <string name="settings">Settings</string>
 </resources>

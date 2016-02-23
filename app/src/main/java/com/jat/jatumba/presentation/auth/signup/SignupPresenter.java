@@ -3,7 +3,6 @@ package com.jat.jatumba.presentation.auth.signup;
 import android.util.Log;
 
 import com.jat.jatumba.R;
-import com.jat.jatumba.domain.auth.common.Credentials;
 import com.jat.jatumba.domain.auth.signup.SignupInteractor;
 import com.jat.jatumba.data.model.User;
 import com.jat.jatumba.presentation.auth.common.BaseAuthPresenter;
@@ -37,15 +36,18 @@ public class SignupPresenter extends BaseAuthPresenter<SignupView> {
         getRouter().goBack();
     }
 
-    public void signup(String login, String password) {
+    public void signup(String username, String password, String firstName, String lastName) {
         Log.d(LOG_TAG, "signup");
-        if (login.length() > 0 && password.length() > 0) {
-
-            signupInteractor.execute(new Credentials(login, password), new Subscriber<User>() {
+        if (username.length() > 0
+                && password.length() > 0
+                && firstName.length() > 0
+                && lastName.length() > 0) {
+            signupInteractor.execute(new User(username, password, firstName, lastName), new Subscriber<User>() {
                 @Override
                 public void onCompleted() {
                     Log.d(LOG_TAG, "onCompleted");
                     signupInteractor.unsubscribe();
+                    getRouter().openMainActivity();
                 }
 
                 @Override
@@ -62,7 +64,7 @@ public class SignupPresenter extends BaseAuthPresenter<SignupView> {
                 }
             });
         } else {
-            getView().showError(R.string.enter_login_and_password);
+            getView().showError(R.string.enter_all_fields);
         }
     }
 }

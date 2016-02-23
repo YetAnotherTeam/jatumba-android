@@ -1,10 +1,11 @@
-package com.jat.jatumba.domain.main.tracks;
+package com.jat.jatumba.domain.main.bands;
 
 import com.jat.jatumba.domain.common.Interactor;
+import com.jat.jatumba.domain.main.tracks.Message;
+import com.jat.jatumba.domain.main.tracks.TracksDataProvider;
+import com.jat.jatumba.data.model.User;
 import com.jat.jatumba.presentation.injection.DomainModule;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -13,11 +14,11 @@ import javax.inject.Named;
 import rx.Observable;
 import rx.Scheduler;
 
-public class GetUsersInteractor extends Interactor<List<Message>, Void> {
+public class GetBandsInteractor extends Interactor<List<Message>, User> {
     private final TracksDataProvider tracksDataProvider;
 
     @Inject
-    public GetUsersInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
+    public GetBandsInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
                               @Named(DomainModule.UI) Scheduler uiScheduler,
                               TracksDataProvider tracksDataProvider) {
         super(jobScheduler, uiScheduler);
@@ -25,14 +26,7 @@ public class GetUsersInteractor extends Interactor<List<Message>, Void> {
     }
 
     @Override
-    protected Observable<List<Message>> buildObservable(Void parametr) {
+    protected Observable<List<Message>> buildObservable(User parameter) {
         return null;
-    }
-
-    private int compareMessageTimestamp(Message message1, Message message2) {
-        if (message1.getTimestamp() == message2.getTimestamp()) {
-            return 0;
-        }
-        return message1.getTimestamp() > message2.getTimestamp() ? -1 : 1;
     }
 }

@@ -1,7 +1,6 @@
 package com.jat.jatumba.domain.auth.signup;
 
 import com.jat.jatumba.data.retrofit.APIInterface;
-import com.jat.jatumba.domain.auth.common.Credentials;
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.data.model.User;
 import com.jat.jatumba.presentation.injection.DomainModule;
@@ -15,7 +14,7 @@ import rx.Scheduler;
 /**
  * Created by bulat on 22.02.16.
  */
-public class SignupInteractor extends Interactor<User, Credentials> {
+public class SignupInteractor extends Interactor<User, User> {
     private final APIInterface apiInterface;
     @Inject
     public SignupInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
@@ -26,7 +25,12 @@ public class SignupInteractor extends Interactor<User, Credentials> {
     }
 
     @Override
-    protected Observable<User> buildObservable(Credentials credentials) {
-        return apiInterface.signupUser(credentials.getLogin(), credentials.getPassword());
+    protected Observable<User> buildObservable(User user) {
+        return apiInterface.signupUser(
+                user.getUsername(),
+                user.getPassword(),
+                user.getFirstName(),
+                user.getLastName()
+        );
     }
 }

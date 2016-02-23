@@ -1,9 +1,8 @@
 package com.jat.jatumba.data;
 
 
-import com.jat.jatumba.domain.main.tracks.Message;
-import com.jat.jatumba.domain.main.tracks.MessagesDataProvider;
-import com.jat.jatumba.data.model.User;
+import com.jat.jatumba.data.model.Band;
+import com.jat.jatumba.domain.main.bands.BandDataProvider;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,22 +12,22 @@ import java.util.concurrent.TimeUnit;
 import rx.Observable;
 import rx.Scheduler;
 
-public class BandDataProviderImpl implements MessagesDataProvider {
+public class BandDataProviderImpl implements BandDataProvider {
 
     public static long PERIOD_UPDATE_IN_SECOND = 3;
     public static long NOW = new Date().getTime();
 
     @Override
-    public Observable<List<Message>> getAllMessages(Scheduler scheduler) {
+    public Observable<List<Band>> getAllBands(Scheduler scheduler) {
         return Observable.interval(0, PERIOD_UPDATE_IN_SECOND, TimeUnit.SECONDS, scheduler)
-                .flatMap(this::getMessages);
+                .flatMap(this::getBands);
     }
 
-    private synchronized Observable<List<Message>> getMessages(long times) {
-        List<Message> result = new ArrayList<>();
+    private synchronized Observable<List<Band>> getBands(long times) {
+        List<Band> result = new ArrayList<>();
         int contactId = 0;
         for (int i = 0; i < times + 5; i++) {
-            result.add(new Message(i, new User(contactId, "Имя " + contactId, "Фамилия" + contactId, "Музыкант" + contactId), "Message " + i, NOW + i*10000));
+            result.add(new Band());
             if (contactId < 1000 - 1) {
                 ++contactId;
             }else {

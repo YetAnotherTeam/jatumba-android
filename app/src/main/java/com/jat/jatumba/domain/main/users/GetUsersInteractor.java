@@ -14,18 +14,18 @@ import rx.Scheduler;
 
 public class GetUsersInteractor extends Interactor<List<User>, Void> {
 
-    private final UsersDataProvider contactsDataProvider;
+    private final UsersDataProvider usersDataProvider;
 
     @Inject
     public GetUsersInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
                               @Named(DomainModule.UI) Scheduler uiScheduler,
-                              UsersDataProvider contactsDataProvider) {
+                              UsersDataProvider usersDataProvider) {
         super(jobScheduler, uiScheduler);
-        this.contactsDataProvider = contactsDataProvider;
+        this.usersDataProvider = usersDataProvider;
     }
 
     @Override
     protected Observable<List<User>> buildObservable(Void parameter) {
-        return contactsDataProvider.getAllUsers();
+        return usersDataProvider.getAllUsers();
     }
 }

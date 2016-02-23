@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.jat.jatumba.R;
 import com.jat.jatumba.presentation.auth.common.BaseAuthFragment;
@@ -23,14 +22,24 @@ public class SignupFragment extends BaseAuthFragment implements SignupView {
     @Inject
     SignupPresenter signupPresenter;
 
-    @Bind(R.id.login)
-    TextView loginTextView;
+    @Bind(R.id.username)
+    EditText usernameTextView;
 
     @Bind(R.id.password)
     EditText passwordEditText;
 
+    @Bind(R.id.first_name)
+    EditText firstNameEditText;
+
+    @Bind(R.id.last_name)
+    EditText lastNameEditText;
+
     @Bind(R.id.signup_button)
     FrameLayout signupButton;
+
+    public SignupFragment() {
+        Log.d(LOG_TAG, "Constructor");
+    }
 
     @OnClick(R.id.back_button)
     public void onClickBackButton() {
@@ -41,9 +50,11 @@ public class SignupFragment extends BaseAuthFragment implements SignupView {
     @OnClick(R.id.signup_button)
     public void onClickSignupButton() {
         Log.d(LOG_TAG, "onClickLoginButton");
-        String login = loginTextView.getText().toString();
+        String username = usernameTextView.getText().toString();
         String password = passwordEditText.getText().toString();
-        signupPresenter.signup(login, password);
+        String firstName = firstNameEditText.getText().toString();
+        String lastName = lastNameEditText.getText().toString();
+        signupPresenter.signup(username, password, firstName, lastName);
     }
 
     @NonNull
