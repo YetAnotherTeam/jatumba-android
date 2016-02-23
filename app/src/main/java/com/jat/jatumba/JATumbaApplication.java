@@ -2,6 +2,7 @@ package com.jat.jatumba;
 
 import android.app.Application;
 
+import com.facebook.FacebookSdk;
 import com.vk.sdk.VKSdk;
 
 /**
@@ -11,6 +12,7 @@ public class JATumbaApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        VKSdk.initialize(this);
+        VKSdk.initialize(getApplicationContext());
+        FacebookSdk.sdkInitialize(getApplicationContext());
     }
 }

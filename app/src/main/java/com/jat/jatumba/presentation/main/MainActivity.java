@@ -24,13 +24,13 @@ public class MainActivity extends DrawerActivity implements MainRouter {
                         .dataModule(new DataModule())
                         .domainModule(new DomainModule())
                         .build();
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
         }
     }
 
     public void resolveToolbar(BaseMainFragment fragment) {
         toolbar.setTitle(fragment.getTitle());
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
             toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
             toolbar.setNavigationOnClickListener(v -> onBackPressed());
         } else {

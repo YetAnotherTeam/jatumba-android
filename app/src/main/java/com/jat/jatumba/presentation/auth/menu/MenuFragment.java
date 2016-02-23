@@ -1,5 +1,6 @@
 package com.jat.jatumba.presentation.auth.menu;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -7,8 +8,11 @@ import com.jat.jatumba.R;
 import com.jat.jatumba.presentation.auth.common.BaseAuthFragment;
 import com.jat.jatumba.presentation.common.BasePresenter;
 import com.jat.jatumba.presentation.common.Layout;
+import com.vk.sdk.VKAccessToken;
+import com.vk.sdk.VKCallback;
 import com.vk.sdk.VKScope;
 import com.vk.sdk.VKSdk;
+import com.vk.sdk.api.VKError;
 
 import javax.inject.Inject;
 
@@ -59,5 +63,24 @@ public class MenuFragment extends BaseAuthFragment implements MenuView {
     @Override
     protected void inject() {
         getAuthActivityComponent().inject(this);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (!VKSdk.onActivityResult(requestCode, resultCode, data, new VKCallback<VKAccessToken>() {
+            @Override
+            public void onResult(VKAccessToken res) {
+                // Пользователь успешно авторизовался
+                Log.d(LOG_TAG, "VKSdk.onActivityResult - onResult");
+            }
+
+            @Override
+            public void onError(VKError error) {
+                // Произошла ошибка авторизации (например, пользователь запретил авторизацию)
+                Log.d(LOG_TAG, "VKSdk.onActivityResult - onError");
+            }
+        })) {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }

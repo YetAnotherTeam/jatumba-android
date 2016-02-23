@@ -4,6 +4,7 @@ apply plugin: 'com.neenbedankt.android-apt'
 
 buildscript {
     repositories {
+        mavenCentral()
         maven {
             url "https://plugins.gradle.org/m2/"
         }
@@ -76,6 +77,7 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.0.1'
 
     compile 'com.vk:androidsdk:1.6.3'
+    compile 'com.facebook.android:facebook-android-sdk:4.10.0'
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.9.5'

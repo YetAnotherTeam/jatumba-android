@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 
+import com.facebook.appevents.AppEventsLogger;
 import com.google.common.base.Preconditions;
 import com.jat.jatumba.R;
 
@@ -13,7 +14,6 @@ import java.lang.annotation.Annotation;
 import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,9 +34,28 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        AppEventsLogger.activateApp(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AppEventsLogger.deactivateApp(this);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!getFragmentManager().popBackStackImmediate()) {
+            supportFinishAfterTransition();
+        }
     }
 
     protected void replaceToFragment(BaseFragment fragment) {

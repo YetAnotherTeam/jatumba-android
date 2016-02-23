@@ -28,7 +28,7 @@ public class AuthActivity extends BaseActivity implements AuthRouter {
                         .dataModule(new DataModule())
                         .domainModule(new DomainModule())
                         .build();
-        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
             openMenu();
         }
     }
@@ -56,7 +56,7 @@ public class AuthActivity extends BaseActivity implements AuthRouter {
 
     @Override
     public void goBack() {
-        getSupportFragmentManager().popBackStack();
+        getFragmentManager().popBackStack();
     }
 
     @Override

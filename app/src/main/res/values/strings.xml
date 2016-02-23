@@ -1,6 +1,7 @@
 <resources>
     <!-- Ключи сервисов -->
     <integer name="com_vk_sdk_AppId">5312521</integer>
+    <string name="facebook_app_id">240527739616747</string>
 
     <string name="app_name">JATumba</string>
     <string name="title_activity_main">MainActivity</string>
