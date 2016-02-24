@@ -2,6 +2,7 @@ package com.jat.jatumba.presentation.main;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.StringRes;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -10,6 +11,7 @@ import com.jat.jatumba.R;
 import com.jat.jatumba.presentation.common.BaseActivity;
 import com.jat.jatumba.presentation.common.BaseFragment;
 import com.jat.jatumba.presentation.main.bands.BandsFragment;
+import com.jat.jatumba.presentation.main.profile.ProfileFragment;
 import com.jat.jatumba.presentation.main.tracks.TracksFragment;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -39,6 +41,7 @@ public abstract class DrawerActivity extends BaseActivity {
     public enum NavigationDrawerItem {
         TRACKS(R.drawable.ic_music_note_black_18dp, R.string.tracks),
         BANDS(R.drawable.ic_group_black_18dp, R.string.bands),
+        PROFILE(R.drawable.ic_person_black_18dp, R.string.profile),
         SETTINGS(R.drawable.ic_settings_black_18dp, R.string.settings),
         DIVIDER(true),
         LOG_OUT(R.drawable.ic_exit_to_app_black_18dp, R.string.log_out);
@@ -47,7 +50,7 @@ public abstract class DrawerActivity extends BaseActivity {
         private int icon;
         private boolean isDivider = false;
 
-        NavigationDrawerItem(int icon, int name) {
+        NavigationDrawerItem(int icon, @StringRes int name) {
             this.icon = icon;
             this.name = name;
         }
@@ -179,6 +182,9 @@ public abstract class DrawerActivity extends BaseActivity {
                 break;
             case BANDS:
                 fragment = new BandsFragment();
+                break;
+            case PROFILE:
+                fragment = new ProfileFragment();
                 break;
             case SETTINGS:
                 //TODO поправить название фрагментов

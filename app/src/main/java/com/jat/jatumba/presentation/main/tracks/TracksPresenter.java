@@ -26,7 +26,7 @@ public class TracksPresenter extends BaseMainPresenter<TracksView> {
         getTracksInteractor.execute(new Subscriber<List<Track>>() {
             @Override
             public void onCompleted() {
-
+                getTracksInteractor.unsubscribe();
             }
 
             @Override
@@ -44,7 +44,6 @@ public class TracksPresenter extends BaseMainPresenter<TracksView> {
 
     @Override
     public void onStop() {
-
     }
 
     public void trackSelected(Track track) {
