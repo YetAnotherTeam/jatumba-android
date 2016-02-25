@@ -38,11 +38,11 @@ public class TracksPresenter extends BaseMainPresenter<TracksView> {
                 getView().setTracks(tracks);
             }
         });
-
     }
 
     @Override
     public void onStop() {
+        getTracksInteractor.unsubscribe();
     }
 
     public void trackSelected(Track track) {

@@ -21,6 +21,7 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 import java.util.ArrayList;
 
@@ -96,7 +97,7 @@ public abstract class DrawerActivity extends BaseActivity {
                 .addProfiles(
                         new ProfileDrawerItem()
                                 .withName("Username")
-                                .withIcon(R.drawable.avatar)
+                                .withIcon(R.drawable.avatar_default)
                 )
                 .withHeaderBackground(R.drawable.header)
                 .withAlternativeProfileHeaderSwitching(false)

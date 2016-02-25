@@ -31,7 +31,7 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.TrackViewH
 
     @Override
     public TrackViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.band_member_view, parent, false);
+        View convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.track_view, parent, false);
         return new TrackViewHolder(convertView);
     }
 
@@ -46,8 +46,8 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.TrackViewH
     }
 
     public class TrackViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.member_full_name)
-        TextView memberFullNameTextView;
+        @Bind(R.id.track_name)
+        TextView trackNameTextView;
 
         public TrackViewHolder(View itemView) {
             super(itemView);
@@ -56,7 +56,7 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.TrackViewH
         }
 
         public void bind(Track track) {
-            memberFullNameTextView.setText(track.getName());
+            trackNameTextView.setText(track.getName());
             itemView.setTag(track);
         }
     }

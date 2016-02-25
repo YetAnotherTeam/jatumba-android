@@ -14,7 +14,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/avatar" />
+        android:src="@drawable/avatar_default" />
 
     <TextView
         android:id="@+id/full_name"

@@ -10,6 +10,6 @@ import rx.Scheduler;
 /**
  * Created by bulat on 24.02.16.
  */
-public interface BandDataProvider {
+public interface BandsDataProvider {
     Observable<List<Band>> getAllBands(Scheduler scheduler);
 }

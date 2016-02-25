@@ -2,7 +2,7 @@ package com.jat.jatumba.data;
 
 
 import com.jat.jatumba.data.entity.Band;
-import com.jat.jatumba.domain.main.bands.BandDataProvider;
+import com.jat.jatumba.domain.main.bands.BandsDataProvider;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 import rx.Observable;
 import rx.Scheduler;
 
-public class BandDataProviderImpl implements BandDataProvider {
+public class BandsDataProviderImpl implements BandsDataProvider {
 
     public static long PERIOD_UPDATE_IN_SECOND = 3;
     public static long NOW = new Date().getTime();

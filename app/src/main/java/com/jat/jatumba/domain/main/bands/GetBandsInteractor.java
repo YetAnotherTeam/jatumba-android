@@ -1,5 +1,6 @@
 package com.jat.jatumba.domain.main.bands;
 
+import com.jat.jatumba.data.entity.Band;
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.domain.main.tracks.Message;
 import com.jat.jatumba.domain.main.tracks.TracksDataProvider;
@@ -14,19 +15,19 @@ import javax.inject.Named;
 import rx.Observable;
 import rx.Scheduler;
 
-public class GetBandsInteractor extends Interactor<List<Message>, User> {
-    private final TracksDataProvider tracksDataProvider;
+public class GetBandsInteractor extends Interactor<List<Band>, User> {
+    private final BandsDataProvider bandsDataProvider;
 
     @Inject
     public GetBandsInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
                               @Named(DomainModule.UI) Scheduler uiScheduler,
-                              TracksDataProvider tracksDataProvider) {
+                              BandsDataProvider bandsDataProvider) {
         super(jobScheduler, uiScheduler);
-        this.tracksDataProvider = tracksDataProvider;
+        this.bandsDataProvider = bandsDataProvider;
     }
 
     @Override
-    protected Observable<List<Message>> buildObservable(User parameter) {
-        return null;
+    protected Observable<List<Band>> buildObservable(User parameter) {
+        return bandsDataProvider.getAllBands(jobScheduler);
     }
 }
