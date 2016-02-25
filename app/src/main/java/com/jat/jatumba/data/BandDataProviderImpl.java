@@ -1,7 +1,7 @@
 package com.jat.jatumba.data;
 
 
-import com.jat.jatumba.data.model.Band;
+import com.jat.jatumba.data.entity.Band;
 import com.jat.jatumba.domain.main.bands.BandDataProvider;
 
 import java.util.ArrayList;

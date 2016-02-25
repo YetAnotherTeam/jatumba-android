@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.jat.jatumba.R;
-import com.jat.jatumba.data.model.User;
+import com.jat.jatumba.data.entity.User;
 
 import java.util.List;
 

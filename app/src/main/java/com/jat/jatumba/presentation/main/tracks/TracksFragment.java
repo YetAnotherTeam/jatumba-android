@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.jat.jatumba.R;
-import com.jat.jatumba.data.model.Track;
+import com.jat.jatumba.data.entity.Track;
 import com.jat.jatumba.presentation.common.BasePresenter;
 import com.jat.jatumba.presentation.common.Layout;
 import com.jat.jatumba.presentation.main.common.BaseMainFragment;
@@ -55,7 +55,6 @@ public class TracksFragment extends BaseMainFragment implements TracksView {
     public String getTitle() {
         return getString(R.string.tracks);
     }
-
 
     public void setTracks(List<Track> tracks) {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

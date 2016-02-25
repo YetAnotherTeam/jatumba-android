@@ -1,6 +1,6 @@
 package com.jat.jatumba.presentation.main.tracks;
 
-import com.jat.jatumba.data.model.Track;
+import com.jat.jatumba.data.entity.Track;
 import com.jat.jatumba.presentation.main.common.BaseMainView;
 
 import java.util.List;

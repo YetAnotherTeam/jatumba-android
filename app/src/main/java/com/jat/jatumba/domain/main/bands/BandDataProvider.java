@@ -1,6 +1,6 @@
 package com.jat.jatumba.domain.main.bands;
 
-import com.jat.jatumba.data.model.Band;
+import com.jat.jatumba.data.entity.Band;
 
 import java.util.List;
 

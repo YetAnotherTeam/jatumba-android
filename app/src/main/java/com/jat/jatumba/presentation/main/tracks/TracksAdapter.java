@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.jat.jatumba.R;
-import com.jat.jatumba.data.model.Track;
+import com.jat.jatumba.data.entity.Track;
 
 import java.util.List;
 

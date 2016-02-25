@@ -1,6 +1,6 @@
 package com.jat.jatumba.domain.main.tracks;
 
-import com.jat.jatumba.data.model.Track;
+import com.jat.jatumba.data.entity.Track;
 
 import java.util.List;
 

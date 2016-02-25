@@ -1,6 +1,6 @@
 package com.jat.jatumba.presentation.main.tracks;
 
-import com.jat.jatumba.data.model.Track;
+import com.jat.jatumba.data.entity.Track;
 import com.jat.jatumba.domain.main.tracks.GetTracksInteractor;
 import com.jat.jatumba.presentation.main.common.BaseMainPresenter;
 
@@ -31,7 +31,6 @@ public class TracksPresenter extends BaseMainPresenter<TracksView> {
 
             @Override
             public void onError(Throwable e) {
-
             }
 
             @Override

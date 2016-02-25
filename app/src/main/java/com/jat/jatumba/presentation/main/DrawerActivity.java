@@ -78,30 +78,13 @@ public abstract class DrawerActivity extends BaseActivity {
         mHandler = new Handler();
     }
 
-    protected int getHomeAsUpIndicator() {
-        return 0;
-    }
-
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        createDrawer();
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
-
-        if (currentNavDrawerItem != null) {
-            mDrawer.setSelection(
-                    currentNavDrawerItem.ordinal(),
-                    false
-            );
-            if (getSupportActionBar() != null) {
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                if (getHomeAsUpIndicator() != 0) {
-                    getSupportActionBar().setHomeAsUpIndicator(getHomeAsUpIndicator());
-                }
-            }
-        }
+        createDrawer();
     }
 
     /**
@@ -142,7 +125,7 @@ public abstract class DrawerActivity extends BaseActivity {
                 .withAccountHeader(header)
                 .withDrawerItems(items)
                 .withOnDrawerItemClickListener((view, position, drawerItem) -> {
-                    onNavDrawerItemClicked(NavigationDrawerItem.values()[drawerItem.getIdentifier()]);
+                    onNavDrawerItemClicked(NavigationDrawerItem.values()[((int) drawerItem.getIdentifier())]);
                     return true;
                 })
                 .withCloseOnClick(false)
@@ -161,7 +144,7 @@ public abstract class DrawerActivity extends BaseActivity {
                     }
                 })
                 .withHeaderDivider(false)
-                .build();
+                .buildForFragment();
     }
 
     private void onNavDrawerItemClicked(final NavigationDrawerItem item) {
@@ -196,7 +179,7 @@ public abstract class DrawerActivity extends BaseActivity {
             default:
                 return;
         }
-        replaceToFragment(fragment, false);
+        replaceToFragment(fragment);
     }
 
     /**

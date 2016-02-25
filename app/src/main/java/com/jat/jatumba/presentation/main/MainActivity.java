@@ -3,7 +3,7 @@ package com.jat.jatumba.presentation.main;
 import android.os.Bundle;
 
 import com.jat.jatumba.R;
-import com.jat.jatumba.data.model.Track;
+import com.jat.jatumba.data.entity.Track;
 import com.jat.jatumba.presentation.common.Layout;
 import com.jat.jatumba.presentation.injection.DaggerMainActivityComponent;
 import com.jat.jatumba.presentation.injection.DataModule;

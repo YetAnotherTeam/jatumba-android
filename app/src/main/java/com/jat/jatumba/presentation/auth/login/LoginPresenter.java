@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.jat.jatumba.R;
 import com.jat.jatumba.domain.auth.login.LoginInteractor;
-import com.jat.jatumba.data.model.User;
+import com.jat.jatumba.data.entity.User;
 import com.jat.jatumba.presentation.auth.common.BaseAuthPresenter;
 
 import javax.inject.Inject;

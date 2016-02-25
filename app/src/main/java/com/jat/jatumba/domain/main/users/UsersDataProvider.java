@@ -1,7 +1,7 @@
 package com.jat.jatumba.domain.main.users;
 
 
-import com.jat.jatumba.data.model.User;
+import com.jat.jatumba.data.entity.User;
 
 import java.util.List;
 

@@ -1,5 +1,5 @@
 package com.jat.jatumba.domain.main.tracks;
-import com.jat.jatumba.data.model.User;
+import com.jat.jatumba.data.entity.User;
 
 public class Message {
     private final int id;

@@ -1,4 +1,4 @@
-package com.jat.jatumba.data.model;
+package com.jat.jatumba.data.entity;
 
 import java.io.Serializable;
 

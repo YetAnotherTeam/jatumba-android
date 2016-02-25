@@ -3,7 +3,7 @@ package com.jat.jatumba.domain.main.bands;
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.domain.main.tracks.Message;
 import com.jat.jatumba.domain.main.tracks.TracksDataProvider;
-import com.jat.jatumba.data.model.User;
+import com.jat.jatumba.data.entity.User;
 import com.jat.jatumba.presentation.injection.DomainModule;
 
 import java.util.List;

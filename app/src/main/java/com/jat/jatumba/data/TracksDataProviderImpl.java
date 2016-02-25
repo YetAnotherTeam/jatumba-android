@@ -1,6 +1,6 @@
 package com.jat.jatumba.data;
 
-import com.jat.jatumba.data.model.Track;
+import com.jat.jatumba.data.entity.Track;
 import com.jat.jatumba.domain.main.tracks.TracksDataProvider;
 
 import java.util.ArrayList;

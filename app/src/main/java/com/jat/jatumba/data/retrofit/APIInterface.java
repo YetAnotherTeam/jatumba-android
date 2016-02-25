@@ -1,6 +1,6 @@
 package com.jat.jatumba.data.retrofit;
 
-import com.jat.jatumba.data.model.User;
+import com.jat.jatumba.data.entity.User;
 
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
