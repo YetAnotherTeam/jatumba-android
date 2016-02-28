@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import com.jat.jatumba.R;
 import com.jat.jatumba.data.entity.Band;
@@ -33,6 +35,12 @@ public class BandsFragment extends BaseMainFragment implements BandsView {
 
     public BandsFragment() {
         Log.d(LOG_TAG, "Constructor");
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.main_bands, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @NonNull

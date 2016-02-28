@@ -50,7 +50,7 @@ public class LoginPresenter extends BaseAuthPresenter<LoginView> {
                 public void onError(Throwable e) {
                     String error = e.getMessage();
                     Log.e(LOG_TAG, "onError: " + error);
-                    getView().showError(error);
+                    getView().showSnack(error);
                     loginInteractor.unsubscribe();
                 }
 
@@ -60,7 +60,7 @@ public class LoginPresenter extends BaseAuthPresenter<LoginView> {
                 }
             });
         } else {
-            getView().showError(R.string.enter_all_fields);
+            getView().showSnack(R.string.enter_all_fields);
         }
     }
 

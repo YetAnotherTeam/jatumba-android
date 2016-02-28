@@ -6,6 +6,6 @@ import android.support.annotation.StringRes;
  * Created by bulat on 27.02.16.
  */
 public interface BaseView {
-    void showError(@StringRes int stringId);
-    void showError(String message);
+    void showSnack(@StringRes int stringId);
+    void showSnack(String message);
 }

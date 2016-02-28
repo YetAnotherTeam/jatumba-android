@@ -8,7 +8,6 @@ import com.jat.jatumba.domain.auth.menu.SocialLoginInteractor;
 import com.jat.jatumba.presentation.auth.common.BaseAuthPresenter;
 import com.jat.jatumba.presentation.auth.menu.mapper.SocialNetworkName;
 import com.jat.jatumba.presentation.auth.menu.mapper.SocialParams;
-import com.vk.sdk.VKScope;
 import com.vk.sdk.VKSdk;
 
 import javax.inject.Inject;
@@ -61,7 +60,7 @@ public class MenuPresenter extends BaseAuthPresenter<MenuView> {
 
             @Override
             public void onError(Throwable e) {
-                getView().showError(e.getMessage());
+                getView().showSnack(e.getMessage());
             }
 
             @Override

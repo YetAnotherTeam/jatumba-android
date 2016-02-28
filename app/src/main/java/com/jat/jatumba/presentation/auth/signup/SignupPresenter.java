@@ -54,7 +54,7 @@ public class SignupPresenter extends BaseAuthPresenter<SignupView> {
                 public void onError(Throwable e) {
                     String error = e.getMessage();
                     Log.e(LOG_TAG, "onError: " + error);
-                    getView().showError(error);
+                    getView().showSnack(error);
                     signupInteractor.unsubscribe();
                 }
 
@@ -64,7 +64,7 @@ public class SignupPresenter extends BaseAuthPresenter<SignupView> {
                 }
             });
         } else {
-            getView().showError(R.string.enter_all_fields);
+            getView().showSnack(R.string.enter_all_fields);
         }
     }
 }

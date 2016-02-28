@@ -33,8 +33,9 @@
                 android:id="@+id/vk_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="start"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
                 android:scaleType="fitCenter"
                 android:src="@drawable/vkontakte" />
 
@@ -43,6 +44,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
                 android:scaleType="fitCenter"
                 android:src="@drawable/odnoklassniki" />
 
@@ -54,7 +57,7 @@
                 android:adjustViewBounds="true"
                 android:contentDescription="@null"
                 android:scaleType="fitCenter"
-                android:src="@drawable/com_facebook_favicon_white" />
+                android:src="@drawable/facebook" />
         </LinearLayout>
 
         <TextView
