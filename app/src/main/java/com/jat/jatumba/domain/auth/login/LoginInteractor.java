@@ -27,6 +27,6 @@ public class LoginInteractor extends Interactor<User, User> {
 
     @Override
     protected Observable<User> buildObservable(User user) {
-        return apiInterface.authUser(user.getUsername(), user.getPassword());
+        return apiInterface.login(user.getUsername(), user.getPassword());
     }
 }

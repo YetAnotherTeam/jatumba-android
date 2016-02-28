@@ -26,7 +26,7 @@ public class SignupInteractor extends Interactor<User, User> {
 
     @Override
     protected Observable<User> buildObservable(User user) {
-        return apiInterface.signupUser(
+        return apiInterface.signup(
                 user.getUsername(),
                 user.getPassword(),
                 user.getFirstName(),

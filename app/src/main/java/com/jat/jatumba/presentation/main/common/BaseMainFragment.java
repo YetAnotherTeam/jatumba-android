@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 
+import com.jat.jatumba.R;
 import com.jat.jatumba.presentation.common.BaseFragment;
 import com.jat.jatumba.presentation.injection.MainActivityComponent;
 import com.jat.jatumba.presentation.main.MainActivity;
@@ -36,6 +39,12 @@ public abstract class BaseMainFragment extends BaseFragment implements BaseMainV
         //noinspection unchecked
         getPresenter().setRouter(mainActivity);
         mainActivity.resolveToolbar(this);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
     }
 
     @Override

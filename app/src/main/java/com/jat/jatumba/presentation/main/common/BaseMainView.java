@@ -1,11 +1,9 @@
 package com.jat.jatumba.presentation.main.common;
 
-import android.support.annotation.StringRes;
+import com.jat.jatumba.presentation.common.BaseView;
 
 /**
  * Created by bulat on 22.02.16.
  */
-public interface BaseMainView {
-    void showError(String message);
-    void showError(@StringRes int stringId);
+public interface BaseMainView extends BaseView {
 }

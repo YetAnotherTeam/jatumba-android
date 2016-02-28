@@ -28,12 +28,6 @@ public class ProfileFragment extends BaseMainFragment implements ProfileView {
         return "Profile";
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d(LOG_TAG, "onCreateView");
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
     @NonNull
     @Override
     protected BasePresenter getPresenter() {

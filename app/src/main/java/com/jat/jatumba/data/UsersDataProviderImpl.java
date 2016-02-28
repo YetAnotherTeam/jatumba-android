@@ -42,7 +42,7 @@ public class UsersDataProviderImpl implements UsersDataProvider {
     @Override
     public Observable<User> authUser() {
         return apiInterface
-                .authUser("", "")
+                .login("", "")
                 .compose(applySchedulers());
     }
 

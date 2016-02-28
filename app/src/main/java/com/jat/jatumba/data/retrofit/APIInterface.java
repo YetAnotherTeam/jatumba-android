@@ -12,15 +12,27 @@ import rx.Observable;
  */
 public interface APIInterface {
     @FormUrlEncoded
+    @POST("/api/sign_up/vk/")
+    Observable<User> vkLogin(
+            @Field("token") String accessToken
+    );
+
+    @FormUrlEncoded
+    @POST("/api/sign_up/fb/")
+    Observable<User> fbLogin(
+            @Field("token") String accessToken
+    );
+
+    @FormUrlEncoded
     @POST("/api/auth/")
-    Observable<User> authUser(
+    Observable<User> login(
             @Field("username") String username,
             @Field("password") String password
     );
 
     @FormUrlEncoded
     @POST("/api/sign_up/")
-    Observable<User> signupUser(
+    Observable<User> signup(
             @Field("username") String username,
             @Field("password") String password,
             @Field("first_name") String firstName,

@@ -25,16 +25,6 @@ public abstract class BaseAuthFragment extends BaseFragment implements BaseAuthV
         getPresenter().setRouter(null);
     }
 
-    @Override
-    public void showError(String message) {
-        Snackbar.make(getView(), message, Snackbar.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void showError(int stringId) {
-        Snackbar.make(getView(), getResources().getString(stringId), Snackbar.LENGTH_LONG).show();
-    }
-
     protected AuthActivityComponent getAuthActivityComponent() {
         return ((AuthActivity)getActivity()).getAuthActivityComponent();
     }

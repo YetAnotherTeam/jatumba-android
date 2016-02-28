@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import com.jat.jatumba.R;
 import com.jat.jatumba.data.entity.Track;
@@ -38,6 +40,12 @@ public class TracksFragment extends BaseMainFragment implements TracksView {
     public void onActivityCreated(Bundle savedInstanceState) {
         Log.d(LOG_TAG, "onActivityCreated");
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.main_track, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @NonNull

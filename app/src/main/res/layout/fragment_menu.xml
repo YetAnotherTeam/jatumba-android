@@ -31,7 +31,9 @@
             <ImageButton
                 android:id="@+id/vk_button"
                 android:layout_width="0dp"
+                android:background="@null"
                 android:layout_height="match_parent"
+                android:src="@drawable/ic_ab_app"
                 android:layout_weight="1" />
 
             <ImageButton
@@ -43,8 +45,12 @@
             <ImageButton
                 android:id="@+id/fb_button"
                 android:layout_width="0dp"
+                android:background="@null"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:src="@drawable/com_facebook_favicon_white" />
         </LinearLayout>
 
         <TextView

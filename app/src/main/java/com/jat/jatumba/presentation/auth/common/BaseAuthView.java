@@ -1,10 +1,7 @@
 package com.jat.jatumba.presentation.auth.common;
 
-import android.support.annotation.StringRes;
+import com.jat.jatumba.presentation.common.BaseView;
 
-public interface BaseAuthView {
-    void showError(String message);
-    void showError(@StringRes int messageId);
-}
+public interface BaseAuthView extends BaseView {}
 
 

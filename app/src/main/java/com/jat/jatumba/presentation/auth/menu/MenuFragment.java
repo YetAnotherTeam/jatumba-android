@@ -31,7 +31,7 @@ public class MenuFragment extends BaseAuthFragment implements MenuView {
     @OnClick(R.id.vk_button)
     public void onClickVkButton() {
         Log.d(LOG_TAG, "onClickVkButton");
-        menuPresenter.vkLogin(this);
+        menuPresenter.getVkToken(this);
     }
 
     @OnClick(R.id.ok_button)
@@ -73,7 +73,8 @@ public class MenuFragment extends BaseAuthFragment implements MenuView {
             @Override
             public void onResult(VKAccessToken res) {
                 // Пользователь успешно авторизовался
-                Log.d(LOG_TAG, "VKSdk.onActivityResult - onResult");
+                Log.d(LOG_TAG, "VKSdk.onActivityResult - onResult" + res.accessToken);
+                menuPresenter.vkLogin(res.accessToken);
             }
 
             @Override

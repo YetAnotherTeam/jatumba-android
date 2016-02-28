@@ -3,6 +3,8 @@ package com.jat.jatumba.presentation.common;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import butterknife.ButterKnife;
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment implements BaseView {
     private static final String LOG_TAG = "BaseFragment";
     private static final AtomicInteger lastFragmentId = new AtomicInteger(0);
     private final int fragmentId;
@@ -59,6 +61,14 @@ public abstract class BaseFragment extends Fragment {
     public void onDestroyView() {
         ButterKnife.unbind(this);
         super.onDestroyView();
+    }
+
+    public void showError(String message) {
+        Snackbar.make(getView(), message, Snackbar.LENGTH_LONG).show();
+    }
+
+    public void showError(@StringRes int stringId) {
+        Snackbar.make(getView(), getResources().getString(stringId), Snackbar.LENGTH_LONG).show();
     }
 
     public String getFragmentName() {

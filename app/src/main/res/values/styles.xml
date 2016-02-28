@@ -1,10 +1,12 @@
 <resources>
+
     <style name="EditTextStyle" parent="@android:style/Widget.EditText">
         <item name="colorControlNormal">@color/textColorSecondary</item>
         <item name="android:textColor">@color/textColorPrimary</item>
         <item name="colorControlActivated">@color/accent</item>
         <item name="colorControlHighlight">@color/accent</item>
     </style>
+
     <style name="TextViewStyle" parent="android:Widget.TextView">
         <item name="android:textColor">@color/textColorSecondary</item>
     </style>
