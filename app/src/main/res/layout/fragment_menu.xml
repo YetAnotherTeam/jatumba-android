@@ -25,31 +25,35 @@
         <LinearLayout
             android:id="@+id/social_auth"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/vk_button"
                 android:layout_width="0dp"
-                android:background="@null"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_ab_app"
-                android:layout_weight="1" />
+                android:layout_gravity="start"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/vkontakte" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/ok_button"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/odnoklassniki" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/fb_button"
                 android:layout_width="0dp"
-                android:background="@null"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
                 android:contentDescription="@null"
+                android:scaleType="fitCenter"
                 android:src="@drawable/com_facebook_favicon_white" />
         </LinearLayout>
 
@@ -57,14 +61,17 @@
             android:id="@+id/or_sign_up_with"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:text="@string/or_sign_up_with"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <Button
             android:id="@+id/email_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/colored_button"
             android:text="@string/email" />
 
         <TextView
