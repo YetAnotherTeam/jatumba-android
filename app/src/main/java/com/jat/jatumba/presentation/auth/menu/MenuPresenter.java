@@ -3,7 +3,8 @@ package com.jat.jatumba.presentation.auth.menu;
 import android.app.Fragment;
 import android.util.Log;
 
-import com.jat.jatumba.data.entity.User;
+import com.facebook.login.LoginManager;
+import com.jat.jatumba.data.network.response.AuthResponse;
 import com.jat.jatumba.domain.auth.menu.SocialLoginInteractor;
 import com.jat.jatumba.presentation.auth.common.BaseAuthPresenter;
 import com.jat.jatumba.presentation.auth.menu.mapper.SocialNetworkName;
@@ -37,6 +38,15 @@ public class MenuPresenter extends BaseAuthPresenter<MenuView> {
         VKSdk.login(fragment);
     }
 
+    public void getOkToken(Fragment fragment) {
+        //VKSdk.login(fragment);
+    }
+
+    public void getFbToken(Fragment fragment) {
+        LoginManager.getInstance().logInWithReadPermissions(fragment, null);
+        //VKSdk.login(fragment);
+    }
+
     public void openSignup() {
         getRouter().openSignUp();
     }
@@ -49,22 +59,26 @@ public class MenuPresenter extends BaseAuthPresenter<MenuView> {
         socialLogin(accessToken, SocialNetworkName.VK);
     }
 
+    public void okLogin(String accessToken) {
+        socialLogin(accessToken, SocialNetworkName.OK);
+    }
+
     public void fbLogin(String accessToken) {
         socialLogin(accessToken, SocialNetworkName.FB);
     }
 
     private void socialLogin(String accessToken, SocialNetworkName socialNetworkName) {
-        socialLoginInteractor.execute(new SocialParams(accessToken, socialNetworkName), new Subscriber<User>() {
+        socialLoginInteractor.execute(new SocialParams(accessToken, socialNetworkName), new Subscriber<AuthResponse>() {
             @Override
             public void onCompleted() {}
 
             @Override
             public void onError(Throwable e) {
-                getView().showSnack(e.getMessage());
+                getView().showSnackMessage(e.getMessage());
             }
 
             @Override
-            public void onNext(User user) {
+            public void onNext(AuthResponse authResponse) {
             }
         });
     }

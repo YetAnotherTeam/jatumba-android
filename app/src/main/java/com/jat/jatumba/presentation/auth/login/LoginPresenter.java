@@ -3,6 +3,7 @@ package com.jat.jatumba.presentation.auth.login;
 import android.util.Log;
 
 import com.jat.jatumba.R;
+import com.jat.jatumba.data.network.response.AuthResponse;
 import com.jat.jatumba.domain.auth.login.LoginInteractor;
 import com.jat.jatumba.data.entity.User;
 import com.jat.jatumba.presentation.auth.common.BaseAuthPresenter;
@@ -39,7 +40,7 @@ public class LoginPresenter extends BaseAuthPresenter<LoginView> {
         Log.d(LOG_TAG, "login");
         if (username.length() > 0 && password.length() > 0) {
 
-            loginInteractor.execute(new User(username, password), new Subscriber<User>() {
+            loginInteractor.execute(new User(username, password), new Subscriber<AuthResponse>() {
                 @Override
                 public void onCompleted() {
                     Log.d(LOG_TAG, "onCompleted");
@@ -50,17 +51,17 @@ public class LoginPresenter extends BaseAuthPresenter<LoginView> {
                 public void onError(Throwable e) {
                     String error = e.getMessage();
                     Log.e(LOG_TAG, "onError: " + error);
-                    getView().showSnack(error);
+                    getView().showSnackMessage(error);
                     loginInteractor.unsubscribe();
                 }
 
                 @Override
-                public void onNext(User user) {
-
+                public void onNext(AuthResponse loginResponse) {
+                    Log.d(LOG_TAG, loginResponse.toString());
                 }
             });
         } else {
-            getView().showSnack(R.string.enter_all_fields);
+            getView().showSnackMessage(R.string.enter_all_fields);
         }
     }
 

@@ -4,10 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 
-import com.jat.jatumba.R;
 import com.jat.jatumba.presentation.common.BaseFragment;
 import com.jat.jatumba.presentation.injection.MainActivityComponent;
 import com.jat.jatumba.presentation.main.MainActivity;
@@ -21,12 +18,12 @@ public abstract class BaseMainFragment extends BaseFragment implements BaseMainV
     public abstract String getTitle();
 
     @Override
-    public void showSnack(String message) {
+    public void showSnackMessage(String message) {
         Snackbar.make(getView(), message, Snackbar.LENGTH_LONG).show();
     }
 
     @Override
-    public void showSnack(@StringRes int stringId) {
+    public void showSnackMessage(@StringRes int stringId) {
         Snackbar.make(getView(), getResources().getString(stringId), Snackbar.LENGTH_LONG).show();
     }
 

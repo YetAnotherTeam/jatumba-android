@@ -1,4 +1,4 @@
-package com.jat.jatumba.data.retrofit;
+package com.jat.jatumba.data.network;
 
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
@@ -15,12 +15,12 @@ public class APIModule implements ConnectionParams{
     public static APIInterface getAPIInterface() {
         OkHttpClient httpClient = new OkHttpClient();
 
-        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        httpClient.interceptors().add(interceptor);
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        httpClient.interceptors().add(loggingInterceptor);
 
-        Retrofit.Builder builder = new Retrofit.Builder().
-                baseUrl(BASE_URL)
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create());
         builder.client(httpClient);

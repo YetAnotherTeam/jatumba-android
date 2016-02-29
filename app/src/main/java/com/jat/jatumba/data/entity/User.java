@@ -1,13 +1,24 @@
 package com.jat.jatumba.data.entity;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class User implements Serializable {
     private int id;
+    @SerializedName("username")
     private String username;
+    @SerializedName("first_name")
     private String firstName;
-    private String password;
+    @SerializedName("last_name")
     private String lastName;
+    @SerializedName("phone")
+    private String phone;
+    @SerializedName("vk_profile")
+    private String vkProfile;
+    @SerializedName("fb_profile")
+    private String fbProfile;
+    private String password;
     private String profession;
 
     public User(int id, String firstName, String lastName, String profession) {
@@ -84,5 +95,29 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getVkProfile() {
+        return vkProfile;
+    }
+
+    public void setVkProfile(String vkProfile) {
+        this.vkProfile = vkProfile;
+    }
+
+    public String getFbProfile() {
+        return fbProfile;
+    }
+
+    public void setFbProfile(String fbProfile) {
+        this.fbProfile = fbProfile;
     }
 }

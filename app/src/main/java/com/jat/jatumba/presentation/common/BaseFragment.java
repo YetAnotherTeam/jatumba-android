@@ -63,11 +63,13 @@ public abstract class BaseFragment extends Fragment implements BaseView {
         super.onDestroyView();
     }
 
-    public void showSnack(String message) {
+    @Override
+    public void showSnackMessage(String message) {
         Snackbar.make(getView(), message, Snackbar.LENGTH_LONG).show();
     }
 
-    public void showSnack(@StringRes int stringId) {
+    @Override
+    public void showSnackMessage(@StringRes int stringId) {
         Snackbar.make(getView(), getResources().getString(stringId), Snackbar.LENGTH_LONG).show();
     }
 

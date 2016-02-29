@@ -3,6 +3,7 @@ package com.jat.jatumba.presentation.auth.signup;
 import android.util.Log;
 
 import com.jat.jatumba.R;
+import com.jat.jatumba.data.network.response.AuthResponse;
 import com.jat.jatumba.domain.auth.signup.SignupInteractor;
 import com.jat.jatumba.data.entity.User;
 import com.jat.jatumba.presentation.auth.common.BaseAuthPresenter;
@@ -42,7 +43,7 @@ public class SignupPresenter extends BaseAuthPresenter<SignupView> {
                 && password.length() > 0
                 && firstName.length() > 0
                 && lastName.length() > 0) {
-            signupInteractor.execute(new User(username, password, firstName, lastName), new Subscriber<User>() {
+            signupInteractor.execute(new User(username, password, firstName, lastName), new Subscriber<AuthResponse>() {
                 @Override
                 public void onCompleted() {
                     Log.d(LOG_TAG, "onCompleted");
@@ -54,17 +55,17 @@ public class SignupPresenter extends BaseAuthPresenter<SignupView> {
                 public void onError(Throwable e) {
                     String error = e.getMessage();
                     Log.e(LOG_TAG, "onError: " + error);
-                    getView().showSnack(error);
+                    getView().showSnackMessage(error);
                     signupInteractor.unsubscribe();
                 }
 
                 @Override
-                public void onNext(User user) {
-
+                public void onNext(AuthResponse authResponse) {
+                    Log.d(LOG_TAG, authResponse.toString());
                 }
             });
         } else {
-            getView().showSnack(R.string.enter_all_fields);
+            getView().showSnackMessage(R.string.enter_all_fields);
         }
     }
 }

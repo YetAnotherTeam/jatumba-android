@@ -1,7 +1,7 @@
 package com.jat.jatumba.data;
 
 
-import com.jat.jatumba.data.retrofit.APIInterface;
+import com.jat.jatumba.data.network.APIInterface;
 import com.jat.jatumba.data.entity.User;
 import com.jat.jatumba.domain.main.users.UsersDataProvider;
 import com.jat.jatumba.presentation.injection.DomainModule;
@@ -40,10 +40,11 @@ public class UsersDataProviderImpl implements UsersDataProvider {
     }
 
     @Override
-    public Observable<User> authUser() {
-        return apiInterface
-                .login("", "")
-                .compose(applySchedulers());
+    public Observable<User> login() {
+//        return apiInterface
+//                .login("", "")
+//                .compose(applySchedulers());
+        return null;
     }
 
     private <T> Observable.Transformer<T, T> applySchedulers() {

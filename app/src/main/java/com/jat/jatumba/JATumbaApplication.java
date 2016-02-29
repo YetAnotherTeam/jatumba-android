@@ -3,6 +3,7 @@ package com.jat.jatumba;
 import android.app.Application;
 
 import com.facebook.FacebookSdk;
+import com.squareup.leakcanary.LeakCanary;
 import com.vk.sdk.VKSdk;
 
 /**
@@ -14,5 +15,6 @@ public class JATumbaApplication extends Application {
         super.onCreate();
         VKSdk.initialize(getApplicationContext());
         FacebookSdk.sdkInitialize(getApplicationContext());
+        // LeakCanary.install(this);
     }
 }

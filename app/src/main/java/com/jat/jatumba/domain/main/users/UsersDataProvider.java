@@ -9,5 +9,5 @@ import rx.Observable;
 
 public interface UsersDataProvider {
     Observable<List<User>> getAllUsers();
-    Observable<User> authUser();
+    Observable<User> login();
 }

@@ -5,5 +5,6 @@ package com.jat.jatumba.presentation.auth.menu.mapper;
  */
 public enum SocialNetworkName {
     VK,
+    OK,
     FB
 }

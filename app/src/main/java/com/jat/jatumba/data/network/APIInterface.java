@@ -1,6 +1,7 @@
-package com.jat.jatumba.data.retrofit;
+package com.jat.jatumba.data.network;
 
 import com.jat.jatumba.data.entity.User;
+import com.jat.jatumba.data.network.response.AuthResponse;
 
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
@@ -13,26 +14,26 @@ import rx.Observable;
 public interface APIInterface {
     @FormUrlEncoded
     @POST("/api/sign_up/vk/")
-    Observable<User> vkLogin(
+    Observable<AuthResponse> vkLogin(
             @Field("token") String accessToken
     );
 
     @FormUrlEncoded
     @POST("/api/sign_up/fb/")
-    Observable<User> fbLogin(
+    Observable<AuthResponse> fbLogin(
             @Field("token") String accessToken
     );
 
     @FormUrlEncoded
-    @POST("/api/auth/")
-    Observable<User> login(
+    @POST("/api/sign_in/")
+    Observable<AuthResponse> login(
             @Field("username") String username,
             @Field("password") String password
     );
 
     @FormUrlEncoded
     @POST("/api/sign_up/")
-    Observable<User> signup(
+    Observable<AuthResponse> signup(
             @Field("username") String username,
             @Field("password") String password,
             @Field("first_name") String firstName,

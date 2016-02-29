@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.jat.jatumba.R;
+import com.jat.jatumba.presentation.auth.login.LoginFragment;
 import com.jat.jatumba.presentation.auth.menu.MenuFragment;
 import com.jat.jatumba.presentation.auth.signup.SignupFragment;
 import com.jat.jatumba.presentation.common.BaseActivity;
@@ -41,8 +42,8 @@ public class AuthActivity extends BaseActivity implements AuthRouter {
     @Override
     public void openLogin() {
         // TODO временно чтобы разработка шла полным ходом
-        openMainActivity();
-        // replaceToFragment(new LoginFragment());
+        // openMainActivity();
+        replaceToFragment(new LoginFragment());
     }
 
     @Override

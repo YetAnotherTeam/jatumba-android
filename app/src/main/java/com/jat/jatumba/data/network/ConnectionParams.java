@@ -1,4 +1,4 @@
-package com.jat.jatumba.data.retrofit;
+package com.jat.jatumba.data.network;
 
 /**
  * Created by bulat on 18.02.16.

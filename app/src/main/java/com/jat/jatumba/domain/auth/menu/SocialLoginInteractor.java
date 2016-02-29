@@ -1,7 +1,7 @@
 package com.jat.jatumba.domain.auth.menu;
 
-import com.jat.jatumba.data.entity.User;
-import com.jat.jatumba.data.retrofit.APIInterface;
+import com.jat.jatumba.data.network.APIInterface;
+import com.jat.jatumba.data.network.response.AuthResponse;
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.presentation.auth.menu.mapper.SocialParams;
 import com.jat.jatumba.presentation.injection.DomainModule;
@@ -15,7 +15,7 @@ import rx.Scheduler;
 /**
  * Created by bulat on 18.02.16.
  */
-public class SocialLoginInteractor extends Interactor<User, SocialParams> {
+public class SocialLoginInteractor extends Interactor<AuthResponse, SocialParams> {
     private final APIInterface apiInterface;
 
     @Inject
@@ -27,7 +27,7 @@ public class SocialLoginInteractor extends Interactor<User, SocialParams> {
     }
 
     @Override
-    protected Observable<User> buildObservable(SocialParams socialParams) {
+    protected Observable<AuthResponse> buildObservable(SocialParams socialParams) {
         String accessToken = socialParams.getAccessToken();
         switch (socialParams.getNetworkName()) {
             case VK:

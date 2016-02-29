@@ -1,6 +1,7 @@
 package com.jat.jatumba.domain.auth.login;
 
-import com.jat.jatumba.data.retrofit.APIInterface;
+import com.jat.jatumba.data.network.APIInterface;
+import com.jat.jatumba.data.network.response.AuthResponse;
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.data.entity.User;
 import com.jat.jatumba.presentation.injection.DomainModule;
@@ -14,7 +15,7 @@ import rx.Scheduler;
 /**
  * Created by bulat on 18.02.16.
  */
-public class LoginInteractor extends Interactor<User, User> {
+public class LoginInteractor extends Interactor<AuthResponse, User> {
     private final APIInterface apiInterface;
 
     @Inject
@@ -26,7 +27,7 @@ public class LoginInteractor extends Interactor<User, User> {
     }
 
     @Override
-    protected Observable<User> buildObservable(User user) {
+    protected Observable<AuthResponse> buildObservable(User user) {
         return apiInterface.login(user.getUsername(), user.getPassword());
     }
 }

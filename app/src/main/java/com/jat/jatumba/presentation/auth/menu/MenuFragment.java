@@ -4,6 +4,11 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 import com.jat.jatumba.R;
 import com.jat.jatumba.presentation.auth.common.BaseAuthFragment;
 import com.jat.jatumba.presentation.common.BasePresenter;
@@ -42,6 +47,7 @@ public class MenuFragment extends BaseAuthFragment implements MenuView {
     @OnClick(R.id.fb_button)
     public void onClickFbButton() {
         Log.d(LOG_TAG, "onClickFbButton");
+        menuPresenter.getFbToken(this);
     }
 
     @OnClick(R.id.email_button)
@@ -65,6 +71,26 @@ public class MenuFragment extends BaseAuthFragment implements MenuView {
     @Override
     protected void inject() {
         getAuthActivityComponent().inject(this);
+    }
+
+    public void initFacebookCallback() {
+        CallbackManager callbackManager = CallbackManager.Factory.create();
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+
+            }
+        });
     }
 
     @Override
