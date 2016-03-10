@@ -12,7 +12,7 @@ import com.jat.jatumba.presentation.common.BaseActivity;
 import com.jat.jatumba.presentation.common.BaseFragment;
 import com.jat.jatumba.presentation.main.bands.BandsFragment;
 import com.jat.jatumba.presentation.main.profile.ProfileFragment;
-import com.jat.jatumba.presentation.main.tracks.TracksFragment;
+import com.jat.jatumba.presentation.main.compositions.CompositionsFragment;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -21,7 +21,6 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 import java.util.ArrayList;
 
@@ -40,7 +39,7 @@ public abstract class DrawerActivity extends BaseActivity {
     protected Toolbar toolbar;
 
     public enum NavigationDrawerItem {
-        TRACKS(R.drawable.ic_music_note_black_18dp, R.string.tracks),
+        COMPOSITIONS(R.drawable.ic_music_note_black_18dp, R.string.compositions),
         BANDS(R.drawable.ic_group_black_18dp, R.string.bands),
         PROFILE(R.drawable.ic_person_black_18dp, R.string.profile),
         SETTINGS(R.drawable.ic_settings_black_18dp, R.string.settings),
@@ -161,8 +160,8 @@ public abstract class DrawerActivity extends BaseActivity {
         currentNavDrawerItem = item;
         BaseFragment fragment;
         switch (item) {
-            case TRACKS:
-                fragment = new TracksFragment();
+            case COMPOSITIONS:
+                fragment = new CompositionsFragment();
                 break;
             case BANDS:
                 fragment = new BandsFragment();

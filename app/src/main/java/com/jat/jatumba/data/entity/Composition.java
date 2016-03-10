@@ -5,13 +5,13 @@ import java.util.Date;
 /**
  * Created by bulat on 23.02.16.
  */
-public class Track {
+public class Composition {
     private int id;
     private String name;
     private Band band;
     private Date modifyDate;
 
-    public Track(int id, String name) {
+    public Composition(int id, String name) {
         this.id = id;
         this.name = name;
     }

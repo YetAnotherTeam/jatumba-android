@@ -1,4 +1,4 @@
-package com.jat.jatumba.presentation.main.trackEditor;
+package com.jat.jatumba.presentation.main.editor;
 
 import com.jat.jatumba.presentation.main.common.BaseMainPresenter;
 
@@ -7,9 +7,9 @@ import javax.inject.Inject;
 /**
  * Created by bulat on 26.02.16.
  */
-public class TrackEditorPresenter extends BaseMainPresenter<TrackEditorView> {
+public class EditorPresenter extends BaseMainPresenter<EditorView> {
     @Inject
-    public TrackEditorPresenter() {
+    public EditorPresenter() {
     }
 
     @Override

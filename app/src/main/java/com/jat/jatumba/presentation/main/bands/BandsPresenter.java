@@ -1,7 +1,6 @@
 package com.jat.jatumba.presentation.main.bands;
 
 import com.jat.jatumba.data.entity.Band;
-import com.jat.jatumba.data.entity.Track;
 import com.jat.jatumba.domain.main.bands.GetBandsInteractor;
 import com.jat.jatumba.presentation.main.common.BaseMainPresenter;
 
@@ -35,8 +34,8 @@ public class BandsPresenter extends BaseMainPresenter<BandsView> {
             }
 
             @Override
-            public void onNext(List<Band> tracks) {
-                getView().setBands(tracks);
+            public void onNext(List<Band> bands) {
+                getView().setBands(bands);
             }
         });
     }
@@ -47,6 +46,6 @@ public class BandsPresenter extends BaseMainPresenter<BandsView> {
     }
 
     public void bandSelected(Band band) {
-        //getRouter().openTracks(band);
+        //getRouter().openCompositions(band);
     }
 }

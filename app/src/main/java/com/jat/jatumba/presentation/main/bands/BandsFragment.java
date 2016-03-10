@@ -9,11 +9,9 @@ import android.view.MenuInflater;
 
 import com.jat.jatumba.R;
 import com.jat.jatumba.data.entity.Band;
-import com.jat.jatumba.data.entity.Track;
 import com.jat.jatumba.presentation.common.BasePresenter;
 import com.jat.jatumba.presentation.common.Layout;
 import com.jat.jatumba.presentation.main.common.BaseMainFragment;
-import com.jat.jatumba.presentation.main.tracks.TracksAdapter;
 
 import java.util.List;
 

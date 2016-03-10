@@ -1,4 +1,4 @@
-package com.jat.jatumba.presentation.main.tracks;
+package com.jat.jatumba.presentation.main.compositions;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 
 import com.jat.jatumba.R;
-import com.jat.jatumba.data.entity.Track;
+import com.jat.jatumba.data.entity.Composition;
 import com.jat.jatumba.presentation.common.BasePresenter;
 import com.jat.jatumba.presentation.common.Layout;
 import com.jat.jatumba.presentation.main.common.BaseMainFragment;
@@ -23,16 +23,16 @@ import butterknife.Bind;
 /**
  * Created by bulat on 22.02.16.
  */
-@Layout(id = R.layout.fragment_tracks)
-public class TracksFragment extends BaseMainFragment implements TracksView {
-    private static final String LOG_TAG = "TracksFragment";
+@Layout(id = R.layout.fragment_compositions)
+public class CompositionsFragment extends BaseMainFragment implements CompositionsView {
+    private static final String LOG_TAG = "CompositionsFragment";
     @Inject
-    TracksPresenter tracksPresenter;
+    CompositionsPresenter compositionsPresenter;
 
-    @Bind(R.id.tracks_recycler_view)
+    @Bind(R.id.compositions_recycler_view)
     RecyclerView recyclerView;
 
-    public TracksFragment() {
+    public CompositionsFragment() {
         Log.d(LOG_TAG, "Constructor");
     }
 
@@ -44,14 +44,14 @@ public class TracksFragment extends BaseMainFragment implements TracksView {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.main_track, menu);
+        inflater.inflate(R.menu.main_compositions, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @NonNull
     @Override
     protected BasePresenter getPresenter() {
-        return tracksPresenter;
+        return compositionsPresenter;
     }
 
     @Override
@@ -61,13 +61,13 @@ public class TracksFragment extends BaseMainFragment implements TracksView {
 
     @Override
     public String getTitle() {
-        return getString(R.string.tracks);
+        return getString(R.string.compositions);
     }
 
-    public void setTracks(List<Track> tracks) {
+    public void setCompositions(List<Composition> compositions) {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        TracksAdapter tracksAdapter = new TracksAdapter(tracks);
-        tracksAdapter.setOnItemClickListener(view -> tracksPresenter.trackSelected((Track) view.getTag()));
-        recyclerView.setAdapter(tracksAdapter);
+        CompositionsAdapter compositionsAdapter = new CompositionsAdapter(compositions);
+        compositionsAdapter.setOnItemClickListener(view -> compositionsPresenter.compositionSelected((Composition) view.getTag()));
+        recyclerView.setAdapter(compositionsAdapter);
     }
 }

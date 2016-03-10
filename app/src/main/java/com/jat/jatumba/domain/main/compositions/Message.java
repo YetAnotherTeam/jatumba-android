@@ -1,4 +1,4 @@
-package com.jat.jatumba.domain.main.tracks;
+package com.jat.jatumba.domain.main.compositions;
 import com.jat.jatumba.data.entity.User;
 
 public class Message {

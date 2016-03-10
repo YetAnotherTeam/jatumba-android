@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/create_track"
+        android:id="@+id/create_composition"
         android:icon="@drawable/ic_add_white_36dp"
-        android:title="@string/create_track"
+        android:title="@string/create_composition"
         app:showAsAction="ifRoom" />
 </menu>

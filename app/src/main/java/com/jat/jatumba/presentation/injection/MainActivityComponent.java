@@ -2,9 +2,9 @@ package com.jat.jatumba.presentation.injection;
 
 import com.jat.jatumba.presentation.main.bandMembers.BandMembersFragment;
 import com.jat.jatumba.presentation.main.bands.BandsFragment;
+import com.jat.jatumba.presentation.main.editor.EditorFragment;
 import com.jat.jatumba.presentation.main.profile.ProfileFragment;
-import com.jat.jatumba.presentation.main.trackEditor.TrackEditorFragment;
-import com.jat.jatumba.presentation.main.tracks.TracksFragment;
+import com.jat.jatumba.presentation.main.compositions.CompositionsFragment;
 
 import javax.inject.Singleton;
 
@@ -19,7 +19,7 @@ public interface MainActivityComponent {
 
     void inject(ProfileFragment profileFragment);
 
-    void inject(TrackEditorFragment trackEditorFragment);
+    void inject(EditorFragment editorFragment);
 
-    void inject(TracksFragment tracksFragment);
+    void inject(CompositionsFragment compositionsFragment);
 }

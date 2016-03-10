@@ -5,7 +5,7 @@
 
     <string name="app_name">JATumba</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="tracks">Compositions</string>
+    <string name="compositions">Compositions</string>
     <string name="bands">Bands</string>
     <string name="error">Apllication error! Sorry…</string>
     <string name="login">Login</string>
@@ -28,6 +28,6 @@
     <string name="prompt_last_name">Enter last name</string>
     <string name="settings">Settings</string>
     <string name="profile">Profile</string>
-    <string name="create_track">Create track</string>
+    <string name="create_composition">Create composition</string>
     <string name="create_band">create_band</string>
 </resources>

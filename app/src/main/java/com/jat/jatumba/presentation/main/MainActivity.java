@@ -3,7 +3,7 @@ package com.jat.jatumba.presentation.main;
 import android.os.Bundle;
 
 import com.jat.jatumba.R;
-import com.jat.jatumba.data.entity.Track;
+import com.jat.jatumba.data.entity.Composition;
 import com.jat.jatumba.presentation.common.Layout;
 import com.jat.jatumba.presentation.injection.DaggerMainActivityComponent;
 import com.jat.jatumba.presentation.injection.DataModule;
@@ -12,7 +12,7 @@ import com.jat.jatumba.presentation.injection.MainActivityComponent;
 import com.jat.jatumba.presentation.main.bandMembers.BandMembersFragment;
 import com.jat.jatumba.presentation.main.bands.BandsFragment;
 import com.jat.jatumba.presentation.main.common.BaseMainFragment;
-import com.jat.jatumba.presentation.main.tracks.TracksFragment;
+import com.jat.jatumba.presentation.main.compositions.CompositionsFragment;
 
 /**
  * Created by bulat on 22.02.16.
@@ -31,7 +31,7 @@ public class MainActivity extends DrawerActivity implements MainRouter {
                         .domainModule(new DomainModule())
                         .build();
         if (getFragmentManager().getBackStackEntryCount() == 0) {
-           openTracks();
+           openCompositions();
         }
     }
 
@@ -51,13 +51,13 @@ public class MainActivity extends DrawerActivity implements MainRouter {
     }
 
     @Override
-    public void openTracks() {
-        replaceToFragment(new TracksFragment(), false);
+    public void openCompositions() {
+        replaceToFragment(new CompositionsFragment(), false);
     }
 
     @Override
-    public void openTrack(Track track) {
-        //replaceToFragment(TrackFragment.newInstance(track));
+    public void openComposition(Composition composition) {
+        //replaceToFragment(CompositionFragment.newInstance(composition));
     }
 
     @Override

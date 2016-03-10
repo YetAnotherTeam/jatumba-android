@@ -1,4 +1,4 @@
-package com.jat.jatumba.presentation.main.trackEditor;
+package com.jat.jatumba.presentation.main.editor;
 
 import android.support.annotation.NonNull;
 import android.view.Menu;
@@ -14,15 +14,15 @@ import javax.inject.Inject;
 /**
  * Created by bulat on 26.02.16.
  */
-@Layout(id = R.layout.fragment_track_editor)
-public class TrackEditorFragment extends BaseMainFragment implements TrackEditorView {
-    private static final String LOG_TAG = "TrackEditorFragment";
+@Layout(id = R.layout.fragment_composition_editor)
+public class EditorFragment extends BaseMainFragment implements EditorView {
+    private static final String LOG_TAG = "EditorFragment";
     @Inject
-    TrackEditorPresenter trackEditorPresenter;
+    EditorPresenter editorPresenter;
 
     @Override
     public String getTitle() {
-        return "Edit track";
+        return "Edit composition";
     }
 
     @Override
@@ -33,7 +33,7 @@ public class TrackEditorFragment extends BaseMainFragment implements TrackEditor
     @NonNull
     @Override
     protected BasePresenter getPresenter() {
-        return trackEditorPresenter;
+        return editorPresenter;
     }
 
     @Override

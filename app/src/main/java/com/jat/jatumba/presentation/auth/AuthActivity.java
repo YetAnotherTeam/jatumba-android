@@ -42,8 +42,8 @@ public class AuthActivity extends BaseActivity implements AuthRouter {
     @Override
     public void openLogin() {
         // TODO временно чтобы разработка шла полным ходом
-        // openMainActivity();
-        replaceToFragment(new LoginFragment());
+        openMainActivity();
+        // replaceToFragment(new LoginFragment());
     }
 
     @Override

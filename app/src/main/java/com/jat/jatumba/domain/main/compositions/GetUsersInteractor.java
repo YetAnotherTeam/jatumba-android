@@ -1,10 +1,8 @@
-package com.jat.jatumba.domain.main.tracks;
+package com.jat.jatumba.domain.main.compositions;
 
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.presentation.injection.DomainModule;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -14,14 +12,14 @@ import rx.Observable;
 import rx.Scheduler;
 
 public class GetUsersInteractor extends Interactor<List<Message>, Void> {
-    private final TracksDataProvider tracksDataProvider;
+    private final CompositionsDataProvider compositionsDataProvider;
 
     @Inject
     public GetUsersInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
                               @Named(DomainModule.UI) Scheduler uiScheduler,
-                              TracksDataProvider tracksDataProvider) {
+                              CompositionsDataProvider compositionsDataProvider) {
         super(jobScheduler, uiScheduler);
-        this.tracksDataProvider = tracksDataProvider;
+        this.compositionsDataProvider = compositionsDataProvider;
     }
 
     @Override
