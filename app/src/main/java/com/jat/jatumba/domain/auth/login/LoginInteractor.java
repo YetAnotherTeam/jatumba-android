@@ -1,6 +1,6 @@
 package com.jat.jatumba.domain.auth.login;
 
-import com.jat.jatumba.data.network.APIInterface;
+import com.jat.jatumba.data.network.LoginInterface;
 import com.jat.jatumba.data.network.response.AuthResponse;
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.data.entity.User;
@@ -16,18 +16,18 @@ import rx.Scheduler;
  * Created by bulat on 18.02.16.
  */
 public class LoginInteractor extends Interactor<AuthResponse, User> {
-    private final APIInterface apiInterface;
+    private final LoginInterface loginInterface;
 
     @Inject
     public LoginInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
                            @Named(DomainModule.UI) Scheduler uiScheduler,
-                           APIInterface apiInterface) {
+                           LoginInterface loginInterface) {
         super(jobScheduler, uiScheduler);
-        this.apiInterface = apiInterface;
+        this.loginInterface = loginInterface;
     }
 
     @Override
     protected Observable<AuthResponse> buildObservable(User user) {
-        return apiInterface.login(user.getUsername(), user.getPassword());
+        return loginInterface.login(user.getUsername(), user.getPassword());
     }
 }

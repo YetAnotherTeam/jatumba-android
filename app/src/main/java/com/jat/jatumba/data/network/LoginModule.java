@@ -7,23 +7,23 @@ import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
 import retrofit.RxJavaCallAdapterFactory;
 
-
-public class APIModule implements ConnectionParams {
+/**
+ * Created by bulat on 19.02.16.
+ */
+public class LoginModule implements ConnectionParams{
     private static final String BASE_URL = SCHEMA + HOST;
-    public static APIInterface getAPIInterface() {
+    public static LoginInterface getAPIInterface() {
         OkHttpClient httpClient = new OkHttpClient();
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-        HeaderInterceptor headerInterceptor = new HeaderInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         httpClient.interceptors().add(loggingInterceptor);
-        httpClient.interceptors().add(headerInterceptor);
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create());
         builder.client(httpClient);
-        return builder.build().create(APIInterface.class);
+        return builder.build().create(LoginInterface.class);
     }
 }

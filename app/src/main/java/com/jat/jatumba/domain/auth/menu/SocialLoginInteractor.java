@@ -1,6 +1,6 @@
 package com.jat.jatumba.domain.auth.menu;
 
-import com.jat.jatumba.data.network.APIInterface;
+import com.jat.jatumba.data.network.LoginInterface;
 import com.jat.jatumba.data.network.response.AuthResponse;
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.presentation.auth.menu.mapper.SocialParams;
@@ -16,14 +16,14 @@ import rx.Scheduler;
  * Created by bulat on 18.02.16.
  */
 public class SocialLoginInteractor extends Interactor<AuthResponse, SocialParams> {
-    private final APIInterface apiInterface;
+    private final LoginInterface loginInterface;
 
     @Inject
     public SocialLoginInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
                                  @Named(DomainModule.UI) Scheduler uiScheduler,
-                                 APIInterface apiInterface) {
+                                 LoginInterface loginInterface) {
         super(jobScheduler, uiScheduler);
-        this.apiInterface = apiInterface;
+        this.loginInterface = loginInterface;
     }
 
     @Override
@@ -31,9 +31,9 @@ public class SocialLoginInteractor extends Interactor<AuthResponse, SocialParams
         String accessToken = socialParams.getAccessToken();
         switch (socialParams.getNetworkName()) {
             case VK:
-                return apiInterface.vkLogin(accessToken);
+                return loginInterface.vkLogin(accessToken);
             case FB:
-                return apiInterface.fbLogin(accessToken);
+                return loginInterface.fbLogin(accessToken);
             default:
                 throw new UnsupportedOperationException("Не реализовано для этой соцсети.");
         }

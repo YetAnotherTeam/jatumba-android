@@ -1,7 +1,7 @@
 package com.jat.jatumba.data;
 
 
-import com.jat.jatumba.data.network.APIInterface;
+import com.jat.jatumba.data.network.LoginInterface;
 import com.jat.jatumba.data.entity.User;
 import com.jat.jatumba.domain.main.users.UsersDataProvider;
 import com.jat.jatumba.presentation.injection.DomainModule;
@@ -27,7 +27,7 @@ public class UsersDataProviderImpl implements UsersDataProvider {
     }
 
     @Inject
-    protected APIInterface apiInterface;
+    protected LoginInterface loginInterface;
 
     @Override
     public Observable<List<User>> getAllUsers() {
