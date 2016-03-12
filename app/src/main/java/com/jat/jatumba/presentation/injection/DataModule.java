@@ -2,6 +2,7 @@ package com.jat.jatumba.presentation.injection;
 
 import com.jat.jatumba.data.BandsDataProviderImpl;
 import com.jat.jatumba.data.CompositionsDataProviderImpl;
+import com.jat.jatumba.data.entity.User;
 import com.jat.jatumba.data.network.APIInterface;
 import com.jat.jatumba.data.network.APIModule;
 import com.jat.jatumba.domain.main.bands.BandsDataProvider;
@@ -39,4 +40,10 @@ public class DataModule {
     public APIInterface provideAPIInterface() {
         return APIModule.getAPIInterface();
     }
+
+//    @Singleton
+//    @Provides
+//    public User provideUser() {
+//        return
+//    }
 }
