@@ -12,6 +12,7 @@ import com.jat.jatumba.presentation.injection.MainActivityComponent;
 import com.jat.jatumba.presentation.main.bandMembers.BandMembersFragment;
 import com.jat.jatumba.presentation.main.bands.BandsFragment;
 import com.jat.jatumba.presentation.main.common.BaseMainFragment;
+import com.jat.jatumba.presentation.main.compositionReader.CompositionReaderFragment;
 import com.jat.jatumba.presentation.main.compositions.CompositionsFragment;
 
 /**
@@ -57,7 +58,7 @@ public class MainActivity extends DrawerActivity implements MainRouter {
 
     @Override
     public void openComposition(Composition composition) {
-        //replaceToFragment(CompositionFragment.newInstance(composition));
+        replaceToFragment(CompositionReaderFragment.newInstance(composition));
     }
 
     @Override

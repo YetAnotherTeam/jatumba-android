@@ -1,4 +1,4 @@
-package com.jat.jatumba.presentation.main.editor;
+package com.jat.jatumba.presentation.main.compositionEditor;
 
 import com.jat.jatumba.presentation.main.common.BaseMainPresenter;
 
@@ -7,9 +7,9 @@ import javax.inject.Inject;
 /**
  * Created by bulat on 26.02.16.
  */
-public class EditorPresenter extends BaseMainPresenter<EditorView> {
+public class CompositionEditorPresenter extends BaseMainPresenter<CompositionEditorView> {
     @Inject
-    public EditorPresenter() {
+    public CompositionEditorPresenter() {
     }
 
     @Override
