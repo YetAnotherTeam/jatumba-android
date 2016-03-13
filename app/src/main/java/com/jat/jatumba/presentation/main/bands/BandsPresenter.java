@@ -1,5 +1,7 @@
 package com.jat.jatumba.presentation.main.bands;
 
+import android.util.Log;
+
 import com.jat.jatumba.data.entity.Band;
 import com.jat.jatumba.domain.main.bands.GetBandsInteractor;
 import com.jat.jatumba.presentation.main.common.BaseMainPresenter;
@@ -35,6 +37,7 @@ public class BandsPresenter extends BaseMainPresenter<BandsView> {
 
             @Override
             public void onNext(List<Band> bands) {
+                Log.d("RETROFIT", bands.toString());
                 getView().setBands(bands);
             }
         });

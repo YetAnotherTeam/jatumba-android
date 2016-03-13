@@ -12,7 +12,7 @@ import retrofit.RxJavaCallAdapterFactory;
  */
 public class LoginModule implements ConnectionParams{
     private static final String BASE_URL = SCHEMA + HOST;
-    public static LoginInterface getAPIInterface() {
+    public static LoginInterface getLoginInterface() {
         OkHttpClient httpClient = new OkHttpClient();
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();

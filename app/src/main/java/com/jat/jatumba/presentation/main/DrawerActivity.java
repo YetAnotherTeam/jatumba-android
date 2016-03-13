@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 
 public abstract class DrawerActivity extends BaseActivity {
-    private static final int NAVDRAWER_LAUNCH_DELAY = 258;
+    private static final int NAVDRAWER_LAUNCH_DELAY = 50;
 
     private Drawer mDrawer;
 
@@ -152,8 +152,8 @@ public abstract class DrawerActivity extends BaseActivity {
         if (item == currentNavDrawerItem) {
             return;
         }
-        // Launch the target Fragment after a short delay, to allow the close animation to play
-        mHandler.postDelayed(() -> navigateTo(item), NAVDRAWER_LAUNCH_DELAY);
+
+        mHandler.post(() -> navigateTo(item));
     }
 
     private void navigateTo(NavigationDrawerItem item) {
