@@ -1,6 +1,6 @@
 package com.jat.jatumba.domain.auth.login;
 
-import com.jat.jatumba.data.network.LoginInterface;
+import com.jat.jatumba.data.network.service.AuthInterface;
 import com.jat.jatumba.data.network.response.AuthResponse;
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.data.entity.User;
@@ -16,12 +16,12 @@ import rx.Scheduler;
  * Created by bulat on 18.02.16.
  */
 public class LoginInteractor extends Interactor<AuthResponse, User> {
-    private final LoginInterface loginInterface;
+    private final AuthInterface loginInterface;
 
     @Inject
     public LoginInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
                            @Named(DomainModule.UI) Scheduler uiScheduler,
-                           LoginInterface loginInterface) {
+                           AuthInterface loginInterface) {
         super(jobScheduler, uiScheduler);
         this.loginInterface = loginInterface;
     }

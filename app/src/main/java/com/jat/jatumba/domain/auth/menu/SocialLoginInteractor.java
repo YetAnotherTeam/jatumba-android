@@ -1,6 +1,6 @@
 package com.jat.jatumba.domain.auth.menu;
 
-import com.jat.jatumba.data.network.LoginInterface;
+import com.jat.jatumba.data.network.service.AuthInterface;
 import com.jat.jatumba.data.network.response.AuthResponse;
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.presentation.auth.menu.mapper.SocialParams;
@@ -16,12 +16,12 @@ import rx.Scheduler;
  * Created by bulat on 18.02.16.
  */
 public class SocialLoginInteractor extends Interactor<AuthResponse, SocialParams> {
-    private final LoginInterface loginInterface;
+    private final AuthInterface loginInterface;
 
     @Inject
     public SocialLoginInteractor(@Named(DomainModule.JOB) Scheduler jobScheduler,
                                  @Named(DomainModule.UI) Scheduler uiScheduler,
-                                 LoginInterface loginInterface) {
+                                 AuthInterface loginInterface) {
         super(jobScheduler, uiScheduler);
         this.loginInterface = loginInterface;
     }

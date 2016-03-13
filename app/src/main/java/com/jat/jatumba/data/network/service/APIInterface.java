@@ -1,4 +1,4 @@
-package com.jat.jatumba.data.network;
+package com.jat.jatumba.data.network.service;
 
 import com.jat.jatumba.data.entity.Band;
 import com.jat.jatumba.data.entity.User;

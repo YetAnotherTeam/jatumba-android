@@ -1,7 +1,7 @@
 package com.jat.jatumba.domain.main.bands;
 
 import com.jat.jatumba.data.entity.Band;
-import com.jat.jatumba.data.network.APIInterface;
+import com.jat.jatumba.data.network.service.APIInterface;
 import com.jat.jatumba.domain.common.Interactor;
 import com.jat.jatumba.data.entity.User;
 import com.jat.jatumba.presentation.injection.DomainModule;

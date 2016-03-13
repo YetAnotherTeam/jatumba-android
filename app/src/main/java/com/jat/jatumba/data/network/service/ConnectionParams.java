@@ -1,4 +1,4 @@
-package com.jat.jatumba.data.network;
+package com.jat.jatumba.data.network.service;
 
 /**
  * Created by bulat on 18.02.16.

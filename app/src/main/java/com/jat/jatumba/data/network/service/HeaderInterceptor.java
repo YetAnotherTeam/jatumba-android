@@ -1,4 +1,4 @@
-package com.jat.jatumba.data.network;
+package com.jat.jatumba.data.network.service;
 
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.Request;

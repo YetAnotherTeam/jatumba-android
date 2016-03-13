@@ -2,10 +2,10 @@ package com.jat.jatumba.presentation.injection;
 
 import com.jat.jatumba.data.BandsDataProviderImpl;
 import com.jat.jatumba.data.CompositionsDataProviderImpl;
-import com.jat.jatumba.data.network.APIInterface;
-import com.jat.jatumba.data.network.APIModule;
-import com.jat.jatumba.data.network.LoginInterface;
-import com.jat.jatumba.data.network.LoginModule;
+import com.jat.jatumba.data.network.service.APIInterface;
+import com.jat.jatumba.data.network.service.APIModule;
+import com.jat.jatumba.data.network.service.AuthInterface;
+import com.jat.jatumba.data.network.service.AuthModule;
 import com.jat.jatumba.domain.main.bands.BandsDataProvider;
 import com.jat.jatumba.domain.main.compositions.CompositionsDataProvider;
 
@@ -24,12 +24,6 @@ public class DataModule {
         return new CompositionsDataProviderImpl();
     }
 
-//    @Singleton
-//    @Provides
-//    public UsersDataProvider provideMarksDataProvider() {
-//        return new UsersDataProviderImpl();
-//    }
-
     @Singleton
     @Provides
     public BandsDataProvider provideBandsDataProvider() {
@@ -38,17 +32,13 @@ public class DataModule {
 
     @Singleton
     @Provides
-    public LoginInterface provideLoginInterface() {
-        return LoginModule.getLoginInterface();
+    public AuthInterface provideAuthInterface() {
+        return AuthModule.getAuthInterface();
     }
 
     @Singleton
     @Provides
-    public APIInterface provideAPIInterface() { return APIModule.getAPIInterface(); }
-
-//    @Singleton
-//    @Provides
-//    public User provideUser() {
-//        return
-//    }
+    public APIInterface provideAPIInterface() {
+        return APIModule.getAPIInterface();
+    }
 }
