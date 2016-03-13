@@ -37,7 +37,6 @@ public class BandsPresenter extends BaseMainPresenter<BandsView> {
 
             @Override
             public void onNext(List<Band> bands) {
-                Log.d("RETROFIT", bands.toString());
                 getView().setBands(bands);
             }
         });

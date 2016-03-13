@@ -12,6 +12,7 @@ import com.jat.jatumba.data.entity.Band;
 import com.jat.jatumba.presentation.common.BasePresenter;
 import com.jat.jatumba.presentation.common.Layout;
 import com.jat.jatumba.presentation.main.common.BaseMainFragment;
+import com.jat.jatumba.presentation.util.SimpleDividerItemDecoration;
 
 import java.util.List;
 
@@ -61,6 +62,9 @@ public class BandsFragment extends BaseMainFragment implements BandsView {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         BandsAdapter bandsAdapter = new BandsAdapter(bands);
         bandsAdapter.setOnItemClickListener(view -> bandsPresenter.bandSelected((Band) view.getTag()));
+        recyclerView.addItemDecoration(new SimpleDividerItemDecoration(
+                getActivity().getApplicationContext()
+        ));
         recyclerView.setAdapter(bandsAdapter);
     }
 }

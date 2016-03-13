@@ -13,6 +13,7 @@ import com.jat.jatumba.data.entity.Composition;
 import com.jat.jatumba.presentation.common.BasePresenter;
 import com.jat.jatumba.presentation.common.Layout;
 import com.jat.jatumba.presentation.main.common.BaseMainFragment;
+import com.jat.jatumba.presentation.util.SimpleDividerItemDecoration;
 
 import java.util.List;
 
@@ -68,6 +69,9 @@ public class CompositionsFragment extends BaseMainFragment implements Compositio
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         CompositionsAdapter compositionsAdapter = new CompositionsAdapter(compositions);
         compositionsAdapter.setOnItemClickListener(view -> compositionsPresenter.compositionSelected((Composition) view.getTag()));
+        recyclerView.addItemDecoration(new SimpleDividerItemDecoration(
+                getActivity().getApplicationContext()
+        ));
         recyclerView.setAdapter(compositionsAdapter);
     }
 }
